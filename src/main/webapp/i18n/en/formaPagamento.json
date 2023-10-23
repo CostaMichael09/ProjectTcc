@@ -1,0 +1,9 @@
+{
+  "newProjectApp": {
+    "FormaPagamento": {
+      "null": "",
+      "AVISTA": "AVISTA",
+      "FINANCIADO": "FINANCIADO"
+    }
+  }
+}

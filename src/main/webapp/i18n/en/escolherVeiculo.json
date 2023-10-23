@@ -1,0 +1,31 @@
+{
+  "newProjectApp": {
+    "escolherVeiculo": {
+      "home": {
+        "title": "Escolher Veiculos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Escolher Veiculo",
+        "createOrEditLabel": "Create or edit a Escolher Veiculo",
+        "notFound": "No Escolher Veiculos found"
+      },
+      "created": "A new Escolher Veiculo is created with identifier {{ param }}",
+      "updated": "A Escolher Veiculo is updated with identifier {{ param }}",
+      "deleted": "A Escolher Veiculo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Escolher Veiculo {{ id }}?"
+      },
+      "detail": {
+        "title": "Escolher Veiculo"
+      },
+      "id": "ID",
+      "nomeCliente": "Nome Cliente",
+      "nomeVendedor": "Nome Vendedor",
+      "startDate": "Start Date",
+      "marcaCarro": "Marca Carro",
+      "anoCarro": "Ano Carro",
+      "modeloCarro": "Modelo Carro",
+      "gnv": "Gnv",
+      "valorTotalCarro": "Valor Total Carro"
+    }
+  }
+}

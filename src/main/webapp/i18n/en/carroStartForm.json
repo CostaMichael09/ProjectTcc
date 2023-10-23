@@ -1,0 +1,27 @@
+{
+  "newProjectApp": {
+    "carroStartForm": {
+      "home": {
+        "title": "Carro Start Forms",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Carro Start Form",
+        "createOrEditLabel": "Create or edit a Carro Start Form",
+        "notFound": "No Carro Start Forms found"
+      },
+      "created": "A new Carro Start Form is created with identifier {{ param }}",
+      "updated": "A Carro Start Form is updated with identifier {{ param }}",
+      "deleted": "A Carro Start Form is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Carro Start Form {{ id }}?"
+      },
+      "detail": {
+        "title": "Carro Start Form"
+      },
+      "id": "ID",
+      "nomeCliente": "Nome Cliente",
+      "nomeVendedor": "Nome Vendedor",
+      "startDate": "Start Date",
+      "endDate": "End Date"
+    }
+  }
+}

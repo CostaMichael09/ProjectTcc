@@ -1,0 +1,33 @@
+{
+  "fields": [
+    {
+      "fieldName": "nomeCliente",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomeVendedor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [],
+  "entityType": "start-form",
+  "processBpmnId": "CarroProcess",
+  "processEntityName": "CarroProcess",
+  "domainEntityName": "Carro",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "name": "CarroStartForm",
+  "changelogDate": "20210401000003",
+  "skipFakeData": true
+}

@@ -1,0 +1,38 @@
+{
+  "newProjectApp": {
+    "fecharCompra": {
+      "home": {
+        "title": "Fechar Compras",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Fechar Compra",
+        "createOrEditLabel": "Create or edit a Fechar Compra",
+        "notFound": "No Fechar Compras found"
+      },
+      "created": "A new Fechar Compra is created with identifier {{ param }}",
+      "updated": "A Fechar Compra is updated with identifier {{ param }}",
+      "deleted": "A Fechar Compra is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fechar Compra {{ id }}?"
+      },
+      "detail": {
+        "title": "Fechar Compra"
+      },
+      "id": "ID",
+      "nomeCliente": "Nome Cliente",
+      "nomeVendedor": "Nome Vendedor",
+      "marcaCarro": "Marca Carro",
+      "anoCarro": "Ano Carro",
+      "modeloCarro": "Modelo Carro",
+      "valorTotalCarro": "Valor Total Carro",
+      "formaPagamento": "Forma Pagamento",
+      "entrada": "Entrada",
+      "parcelas": "Parcelas",
+      "valorParcela": "Valor Parcela",
+      "juros": "Juros",
+      "rua": "Rua",
+      "bairro": "Bairro",
+      "cidade": "Cidade",
+      "cep": "Cep"
+    }
+  }
+}

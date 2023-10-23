@@ -1,0 +1,41 @@
+{
+  "newProjectApp": {
+    "carroProcess": {
+      "home": {
+        "title": "Carro Processes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Carro Process",
+        "createOrEditLabel": "Create or edit a Carro Process",
+        "notFound": "No Carro Processes found"
+      },
+      "created": "A new Carro Process is created with identifier {{ param }}",
+      "updated": "A Carro Process is updated with identifier {{ param }}",
+      "deleted": "A Carro Process is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Carro Process {{ id }}?"
+      },
+      "detail": {
+        "title": "Carro Process"
+      },
+      "id": "ID",
+      "nomeCliente": "Nome Cliente",
+      "nomeVendedor": "Nome Vendedor",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "marcaCarro": "Marca Carro",
+      "anoCarro": "Ano Carro",
+      "modeloCarro": "Modelo Carro",
+      "formaPagamento": "Forma Pagamento",
+      "gnv": "Gnv",
+      "valorTotalCarro": "Valor Total Carro",
+      "entrada": "Entrada",
+      "valorParcela": "Valor Parcela",
+      "parcelas": "Parcelas",
+      "juros": "Juros",
+      "rua": "Rua",
+      "bairro": "Bairro",
+      "cidade": "Cidade",
+      "cep": "Cep"
+    }
+  }
+}

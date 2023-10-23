@@ -1,0 +1,61 @@
+{
+  "fields": [
+    {
+      "fieldName": "nomeCliente",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "nomeVendedor",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "marcaCarro",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "anoCarro",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "modeloCarro",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "valorTotalCarro",
+      "fieldType": "BigDecimal",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "formaPagamento",
+      "fieldType": "FormaPagamento",
+      "fieldValues": "AVISTA,FINANCIADO"
+    },
+    {
+      "fieldName": "parcelas",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "entrada",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [],
+  "entityType": "user-task-form",
+  "processBpmnId": "CarroProcess",
+  "processEntityName": "CarroProcess",
+  "taskBpmnId": "Pagamento",
+  "domainEntityName": "Carro",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "skipFakeData": true,
+  "name": "Pagamento",
+  "changelogDate": "20210401000005"
+}
