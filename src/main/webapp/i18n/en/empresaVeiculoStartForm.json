@@ -1,0 +1,25 @@
+{
+  "newProjectApp": {
+    "empresaVeiculoStartForm": {
+      "home": {
+        "title": "Empresa Veiculo Start Forms",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Empresa Veiculo Start Form",
+        "createOrEditLabel": "Create or edit a Empresa Veiculo Start Form",
+        "notFound": "No Empresa Veiculo Start Forms found"
+      },
+      "created": "A new Empresa Veiculo Start Form is created with identifier {{ param }}",
+      "updated": "A Empresa Veiculo Start Form is updated with identifier {{ param }}",
+      "deleted": "A Empresa Veiculo Start Form is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Empresa Veiculo Start Form {{ id }}?"
+      },
+      "detail": {
+        "title": "Empresa Veiculo Start Form"
+      },
+      "id": "ID",
+      "renavam": "Renavam",
+      "placa": "Placa"
+    }
+  }
+}

@@ -7,35 +7,17 @@
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <!--
-        Added the entity EscolherVeiculo.
+        Added the entity EmpresaVeiculoStartForm.
     -->
-    <changeSet id="20210401000004-1" author="jhipster">
-        <createTable tableName="escolher_veiculo">
+    <changeSet id="20231024203500-1" author="jhipster">
+        <createTable tableName="empresa_veiculo_start_form">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="nome_cliente" type="varchar(255)">
+            <column name="renavam" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="nome_vendedor" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="start_date" type="date">
-                <constraints nullable="true" />
-            </column>
-            <column name="marca_carro" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="ano_carro" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="modelo_carro" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="gnv" type="boolean">
-                <constraints nullable="true" />
-            </column>
-            <column name="valor_total_carro" type="decimal(21,2)">
+            <column name="placa" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

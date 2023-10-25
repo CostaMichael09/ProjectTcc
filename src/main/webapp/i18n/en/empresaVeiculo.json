@@ -1,0 +1,30 @@
+{
+  "newProjectApp": {
+    "empresaVeiculo": {
+      "home": {
+        "title": "Empresa Veiculos",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Empresa Veiculos found"
+      },
+      "detail": {
+        "title": "Empresa Veiculo"
+      },
+      "id": "ID",
+      "renavam": "Renavam",
+      "placa": "Placa",
+      "docRegular": "Doc Regular",
+      "multa": "Multa",
+      "marca": "Marca",
+      "modelo": "Modelo",
+      "anoFabricacao": "Ano Fabricacao",
+      "anoModelo": "Ano Modelo",
+      "cor": "Cor",
+      "estadoVeiculo": "Estado Veiculo",
+      "obsEstadoVeiculo": "Obs Estado Veiculo",
+      "fotos": "Fotos",
+      "aprovarFotos": "Aprovar Fotos",
+      "preco": "Preco",
+      "anuncioAprovado": "Anuncio Aprovado"
+    }
+  }
+}

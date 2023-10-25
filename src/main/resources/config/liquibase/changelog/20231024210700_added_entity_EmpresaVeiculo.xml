@@ -7,56 +7,56 @@
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <!--
-        Added the entity FecharCompra.
+        Added the entity EmpresaVeiculo.
     -->
-    <changeSet id="20210401000005-1" author="jhipster">
-        <createTable tableName="fechar_compra">
+    <changeSet id="20231024210700-1" author="jhipster">
+        <createTable tableName="empresa_veiculo">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="nome_cliente" type="varchar(255)">
+            <column name="renavam" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="nome_vendedor" type="varchar(255)">
+            <column name="placa" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="marca_carro" type="varchar(255)">
+            <column name="doc_regular" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="ano_carro" type="varchar(255)">
+            <column name="multa" type="decimal(21,2)">
                 <constraints nullable="true" />
             </column>
-            <column name="modelo_carro" type="varchar(255)">
+            <column name="marca" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="valor_total_carro" type="decimal(21,2)">
+            <column name="modelo" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="forma_pagamento" type="varchar(255)">
+            <column name="ano_fabricacao" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="entrada" type="decimal(21,2)">
+            <column name="ano_modelo" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="parcelas" type="bigint">
+            <column name="cor" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="valor_parcela" type="decimal(21,2)">
+            <column name="estado_veiculo" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="juros" type="decimal(21,2)">
+            <column name="obs_estado_veiculo" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="rua" type="varchar(255)">
+            <column name="fotos" type="${clobType}">
                 <constraints nullable="true" />
             </column>
-            <column name="bairro" type="varchar(255)">
+            <column name="aprovar_fotos" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="cidade" type="varchar(255)">
+            <column name="preco" type="decimal(21,2)">
                 <constraints nullable="true" />
             </column>
-            <column name="cep" type="varchar(255)">
+            <column name="anuncio_aprovado" type="boolean">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

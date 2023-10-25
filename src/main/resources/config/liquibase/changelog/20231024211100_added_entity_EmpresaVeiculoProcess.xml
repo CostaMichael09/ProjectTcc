@@ -3,27 +3,21 @@
     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
     xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <!--
-        Added the entity CarroStartForm.
+        Added the entity EmpresaVeiculoProcess.
     -->
-    <changeSet id="20210401000003-1" author="jhipster">
-        <createTable tableName="carro_start_form">
+    <changeSet id="20231024211100" author="jhipster">
+        <createTable tableName="empresa_veiculo_process">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="nome_cliente" type="varchar(255)">
+            <column name="process_instance_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="nome_vendedor" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="start_date" type="date">
-                <constraints nullable="true" />
-            </column>
-            <column name="end_date" type="date">
+            <column name="empresa_veiculo_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
@@ -31,4 +25,5 @@
     </changeSet>
 
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
 </databaseChangeLog>

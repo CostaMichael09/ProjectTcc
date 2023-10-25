@@ -18,6 +18,9 @@
         "escolherVeiculo": "Escolher Veiculo",
         "pagamento": "Pagamento",
         "fecharCompra": "Fechar Compra",
+        "empresaVeiculo": "Empresa Veiculo",
+        "empresaVeiculoProcess": "Empresa Veiculo Process",
+        "empresaVeiculoStartForm": "Empresa Veiculo Start Form",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

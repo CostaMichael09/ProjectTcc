@@ -24,6 +24,16 @@ const CarroProcess_PagamentoExecute = () => import('@/entities/carro-process/pag
 const CarroProcess_FecharCompraDetails = () => import('@/entities/carro-process/fechar-compra/fechar-compra-details.vue');
 // prettier-ignore
 const CarroProcess_FecharCompraExecute = () => import('@/entities/carro-process/fechar-compra/fechar-compra-execute.vue');
+// prettier-ignore
+const EmpresaVeiculo = () => import('@/entities/empresa-veiculo/empresa-veiculo.vue');
+// prettier-ignore
+const EmpresaVeiculoDetails = () => import('@/entities/empresa-veiculo/empresa-veiculo-details.vue');
+// prettier-ignore
+const EmpresaVeiculoProcessDetails = () => import('@/entities/empresa-veiculo-process/empresa-veiculo-process-details.vue');
+// prettier-ignore
+const EmpresaVeiculoProcessList = () => import('@/entities/empresa-veiculo-process/empresa-veiculo-process-list.vue');
+// prettier-ignore
+const EmpresaVeiculoStartFormInit = () => import('@/entities/empresa-veiculo-process/empresa-veiculo-start-form-init.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 export default [
@@ -91,6 +101,36 @@ export default [
     path: '/process-definition/CarroProcess/task/FecharCompra/:taskInstanceId/execute',
     name: 'CarroProcess_FecharCompraExecute',
     component: CarroProcess_FecharCompraExecute,
+    meta: { authorities: [Authority.USER] },
+  },
+  {
+    path: '/empresa-veiculo',
+    name: 'EmpresaVeiculo',
+    component: EmpresaVeiculo,
+    meta: { authorities: [Authority.USER] },
+  },
+  {
+    path: '/empresa-veiculo/:empresaVeiculoId/view',
+    name: 'EmpresaVeiculoView',
+    component: EmpresaVeiculoDetails,
+    meta: { authorities: [Authority.USER] },
+  },
+  {
+    path: '/process-definition/EmpresaVeiculoProcess/instance/:processInstanceId/view',
+    name: 'EmpresaVeiculoProcessView',
+    component: EmpresaVeiculoProcessDetails,
+    meta: { authorities: [Authority.USER] },
+  },
+  {
+    path: '/process-definition/EmpresaVeiculoProcess/instances',
+    name: 'EmpresaVeiculoProcessList',
+    component: EmpresaVeiculoProcessList,
+    meta: { authorities: [Authority.USER] },
+  },
+  {
+    path: '/process-definition/EmpresaVeiculoProcess/init',
+    name: 'EmpresaVeiculoStartFormInit',
+    component: EmpresaVeiculoStartFormInit,
     meta: { authorities: [Authority.USER] },
   },
   // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

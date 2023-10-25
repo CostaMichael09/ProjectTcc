@@ -33,6 +33,8 @@ import UserOAuth2Service from '@/entities/user/user.oauth2.service';
 
 import CarroService from '@/entities/carro/carro.service';
 import CarroProcessService from '@/entities/carro-process/carro-process.service';
+import EmpresaVeiculoService from '@/entities/empresa-veiculo/empresa-veiculo.service';
+import EmpresaVeiculoProcessService from '@/entities/empresa-veiculo-process/empresa-veiculo-process.service';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 /* tslint:enable */
@@ -98,6 +100,8 @@ new Vue({
     translationService: () => translationService,
     carroService: () => new CarroService(),
     carroProcessService: () => new CarroProcessService(),
+    empresaVeiculoService: () => new EmpresaVeiculoService(),
+    empresaVeiculoProcessService: () => new EmpresaVeiculoProcessService(),
     // jhipster-needle-add-entity-service-to-main - JHipster will import entities services here
     accountService: () => accountService,
   },

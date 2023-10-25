@@ -1,0 +1,75 @@
+{
+  "fields": [
+    {
+      "fieldName": "renavam",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "placa",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "docRegular",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "multa",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "marca",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modelo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anoFabricacao",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "anoModelo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "cor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "estadoVeiculo",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "obsEstadoVeiculo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fotos",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "aprovarFotos",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "preco",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "anuncioAprovado",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [],
+  "entityType": "domain",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": true,
+  "pagination": "no",
+  "name": "EmpresaVeiculo",
+  "changelogDate": "20231024210700",
+  "skipFakeData": true
+}
