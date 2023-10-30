@@ -1,0 +1,34 @@
+{
+  "newProjectApp": {
+    "taskRevisarAnuncio": {
+      "home": {
+        "title": "Task Revisar Anuncios",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Task Revisar Anuncio",
+        "createOrEditLabel": "Create or edit a Task Revisar Anuncio",
+        "notFound": "No Task Revisar Anuncios found"
+      },
+      "created": "A new Task Revisar Anuncio is created with identifier {{ param }}",
+      "updated": "A Task Revisar Anuncio is updated with identifier {{ param }}",
+      "deleted": "A Task Revisar Anuncio is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Task Revisar Anuncio {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Revisar Anuncio"
+      },
+      "id": "ID",
+      "renavam": "Renavam",
+      "placa": "Placa",
+      "docRegular": "Doc Regular",
+      "multa": "Multa",
+      "marca": "Marca",
+      "modelo": "Modelo",
+      "anoFabricacao": "Ano Fabricacao",
+      "anoModelo": "Ano Modelo",
+      "cor": "Cor",
+      "preco": "Preco",
+      "anuncioAprovado": "Anuncio Aprovado"
+    }
+  }
+}

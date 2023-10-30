@@ -1,0 +1,32 @@
+{
+  "newProjectApp": {
+    "taskInclusaoDoc": {
+      "home": {
+        "title": "Task Inclusao Docs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Task Inclusao Doc",
+        "createOrEditLabel": "Create or edit a Task Inclusao Doc",
+        "notFound": "No Task Inclusao Docs found"
+      },
+      "created": "A new Task Inclusao Doc is created with identifier {{ param }}",
+      "updated": "A Task Inclusao Doc is updated with identifier {{ param }}",
+      "deleted": "A Task Inclusao Doc is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Task Inclusao Doc {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Inclusao Doc"
+      },
+      "id": "ID",
+      "renavam": "Renavam",
+      "placa": "Placa",
+      "docRegular": "Doc Regular",
+      "multa": "Multa",
+      "marca": "Marca",
+      "modelo": "Modelo",
+      "anoFabricacao": "Ano Fabricacao",
+      "anoModelo": "Ano Modelo",
+      "cor": "Cor"
+    }
+  }
+}

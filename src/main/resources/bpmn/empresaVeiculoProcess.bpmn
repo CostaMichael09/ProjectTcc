@@ -6,28 +6,34 @@
       <bpmn:documentation>Somos especializados na venda de veículos novos e usados, nacionais e importados. Com certeza você não só apreciará como irá comprar seu veículo conosco. Todos nossos veículos são revisados criteriosamente, possibilitando dar aos nossos clientes tranquilidade na hora da compra. Não perca tempo! Compre seu veículo com quem mais entende do assunto. Nossos vendedores terão o prazer em atendê-lo.</bpmn:documentation>
     </bpmn:participant>
   </bpmn:collaboration>
-  <bpmn:process id="EmpresaVeiculoProcess" isExecutable="true">
+  <bpmn:process id="EmpresaVeiculoProcess" name="EmpresaVeiculoProcess" isExecutable="true">
+    <bpmn:documentation>Somos especializados na venda de veículos novos e usados, nacionais e importados. Com certeza você não só apreciará como irá comprar seu veículo conosco. Todos nossos veículos são revisados criteriosamente, possibilitando dar aos nossos clientes tranquilidade na hora da compra. Não perca tempo! Compre seu veículo com quem mais entende do assunto. Nossos vendedores terão o prazer em atendê-lo.</bpmn:documentation>
     <bpmn:laneSet id="LaneSet_0it3lka">
       <bpmn:lane id="Gerente" name="Gerente">
+        <bpmn:documentation>Tarefa de gerente</bpmn:documentation>
         <bpmn:flowNodeRef>Gateway_129e940</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_07d7plc</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_0gdl4pg</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>VerificarEstadoDoVeiculo</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EnviarParaReparo</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>AprovarFotos</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>RevisarAnuncio</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskVerificarEstadoDoVeiculo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EnviarParaReparoDelegate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskAprovarFotos</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskRevisarAnuncio</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Marketing" name="Marketing">
+        <bpmn:documentation>Tarefa do marketing</bpmn:documentation>
         <bpmn:flowNodeRef>Gateway_1gfcdax</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>IncluirFotos</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>CadastrarAnuncio</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskIncluirFotos</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskCadastrarAnuncio</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Secretaria" name="Secretaria">
+        <bpmn:documentation>Tarefa de secretaria</bpmn:documentation>
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1t9dgzg</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>RegularizarVeiculo</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>InclusaoDoc</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskRegularizarVeiculo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>TaskInclusaoDoc</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>VerificarDocDelegate</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_027qrrb</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_1rz2ypi</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:startEvent id="StartEvent_1" name="Start Form">
@@ -56,83 +62,103 @@
       <bpmn:outgoing>Flow_0ormlpm</bpmn:outgoing>
       <bpmn:outgoing>Flow_016hfcf</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="Flow_0wmgp6x" name="NotOk" sourceRef="Gateway_1t9dgzg" targetRef="RegularizarVeiculo">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!empty regularizadoNotOk}</bpmn:conditionExpression>
+    <bpmn:sequenceFlow id="Flow_0wmgp6x" name="NotOk" sourceRef="Gateway_1t9dgzg" targetRef="TaskRegularizarVeiculo">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${(processInstance.empresaVeiculo.docRegular == false)}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_0ormlpm" name="NotOk" sourceRef="Gateway_0gdl4pg" targetRef="EnviarParaReparo">
+    <bpmn:sequenceFlow id="Flow_0ormlpm" name="NotOk" sourceRef="Gateway_0gdl4pg" targetRef="EnviarParaReparoDelegate">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!empty estadoNotOk}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_1ih6gxb" name="Ok" sourceRef="Gateway_129e940" targetRef="Event_07d7plc">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!empty anuncioOk}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:userTask id="RegularizarVeiculo" name="RegularizarVeiculo">
+    <bpmn:userTask id="TaskRegularizarVeiculo" name="TaskRegularizarVeiculo">
       <bpmn:incoming>Flow_0wmgp6x</bpmn:incoming>
-      <bpmn:outgoing>Flow_11wrp5a</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1hoh65a</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_1hxtzps" sourceRef="VerificarDocDelegate" targetRef="Gateway_1t9dgzg" />
-    <bpmn:userTask id="InclusaoDoc" name="Inclusao de Doc.">
-      <bpmn:incoming>Flow_11wrp5a</bpmn:incoming>
+    <bpmn:userTask id="TaskInclusaoDoc" name="TaskInclusaoDoc">
       <bpmn:incoming>Flow_1937min</bpmn:incoming>
+      <bpmn:incoming>Flow_1cteyjr</bpmn:incoming>
       <bpmn:outgoing>Flow_1u5w0i9</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_11wrp5a" sourceRef="RegularizarVeiculo" targetRef="InclusaoDoc" />
-    <bpmn:userTask id="VerificarEstadoDoVeiculo" name="VerificarEstadoDoVeiculo">
+    <bpmn:userTask id="TaskVerificarEstadoDoVeiculo" name="TaskVerificarEstadoDoVeiculo">
       <bpmn:incoming>Flow_1u5w0i9</bpmn:incoming>
       <bpmn:incoming>Flow_0qggwxs</bpmn:incoming>
       <bpmn:outgoing>Flow_06660si</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_1u5w0i9" sourceRef="InclusaoDoc" targetRef="VerificarEstadoDoVeiculo" />
-    <bpmn:serviceTask id="EnviarParaReparo" name="EnviarParaReparo">
+    <bpmn:sequenceFlow id="Flow_1u5w0i9" sourceRef="TaskInclusaoDoc" targetRef="TaskVerificarEstadoDoVeiculo" />
+    <bpmn:serviceTask id="EnviarParaReparoDelegate" name="EnviarParaReparo" camunda:delegateExpression="${reparoVeiculo}">
       <bpmn:incoming>Flow_0ormlpm</bpmn:incoming>
       <bpmn:outgoing>Flow_0qggwxs</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="Flow_0qggwxs" sourceRef="EnviarParaReparo" targetRef="VerificarEstadoDoVeiculo" />
-    <bpmn:sequenceFlow id="Flow_06660si" sourceRef="VerificarEstadoDoVeiculo" targetRef="Gateway_0gdl4pg" />
-    <bpmn:sequenceFlow id="Flow_18m0z8u" name="NotOk" sourceRef="Gateway_1gfcdax" targetRef="IncluirFotos">
+    <bpmn:sequenceFlow id="Flow_0qggwxs" sourceRef="EnviarParaReparoDelegate" targetRef="TaskVerificarEstadoDoVeiculo" />
+    <bpmn:sequenceFlow id="Flow_06660si" sourceRef="TaskVerificarEstadoDoVeiculo" targetRef="Gateway_0gdl4pg" />
+    <bpmn:sequenceFlow id="Flow_18m0z8u" name="NotOk" sourceRef="Gateway_1gfcdax" targetRef="TaskIncluirFotos">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!empty anuncioNotOk}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_016hfcf" name="Ok" sourceRef="Gateway_0gdl4pg" targetRef="IncluirFotos">
+    <bpmn:sequenceFlow id="Flow_016hfcf" name="Ok" sourceRef="Gateway_0gdl4pg" targetRef="TaskIncluirFotos">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!empty estadoOk}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_1ieehyw" sourceRef="IncluirFotos" targetRef="AprovarFotos" />
-    <bpmn:userTask id="IncluirFotos" name="IncluirFotos">
+    <bpmn:sequenceFlow id="Flow_1ieehyw" sourceRef="TaskIncluirFotos" targetRef="TaskAprovarFotos" />
+    <bpmn:userTask id="TaskIncluirFotos" name="TaskIncluirFotos">
       <bpmn:incoming>Flow_18m0z8u</bpmn:incoming>
       <bpmn:incoming>Flow_016hfcf</bpmn:incoming>
       <bpmn:outgoing>Flow_1ieehyw</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="AprovarFotos" name="AprovarFotos">
+    <bpmn:userTask id="TaskAprovarFotos" name="TaskAprovarFotos">
       <bpmn:incoming>Flow_1ieehyw</bpmn:incoming>
       <bpmn:outgoing>Flow_0kfbeye</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_0kfbeye" sourceRef="AprovarFotos" targetRef="Gateway_1gfcdax" />
-    <bpmn:sequenceFlow id="Flow_03z6vlh" name="Ok" sourceRef="Gateway_1gfcdax" targetRef="CadastrarAnuncio">
+    <bpmn:sequenceFlow id="Flow_0kfbeye" sourceRef="TaskAprovarFotos" targetRef="Gateway_1gfcdax" />
+    <bpmn:sequenceFlow id="Flow_03z6vlh" name="Ok" sourceRef="Gateway_1gfcdax" targetRef="TaskCadastrarAnuncio">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!empty fotosOk}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_115950n" name="NotOk" sourceRef="Gateway_129e940" targetRef="CadastrarAnuncio">
+    <bpmn:sequenceFlow id="Flow_115950n" name="NotOk" sourceRef="Gateway_129e940" targetRef="TaskCadastrarAnuncio">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!empty anuncioNotOk}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:userTask id="CadastrarAnuncio" name="CadastrarAnuncio">
+    <bpmn:userTask id="TaskCadastrarAnuncio" name="TaskCadastrarAnuncio">
       <bpmn:incoming>Flow_03z6vlh</bpmn:incoming>
       <bpmn:incoming>Flow_115950n</bpmn:incoming>
       <bpmn:outgoing>Flow_18a1zsw</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_18a1zsw" sourceRef="CadastrarAnuncio" targetRef="RevisarAnuncio" />
-    <bpmn:userTask id="RevisarAnuncio" name="RevisarAnuncio">
+    <bpmn:sequenceFlow id="Flow_18a1zsw" sourceRef="TaskCadastrarAnuncio" targetRef="TaskRevisarAnuncio" />
+    <bpmn:userTask id="TaskRevisarAnuncio" name="TaskRevisarAnuncio">
       <bpmn:incoming>Flow_18a1zsw</bpmn:incoming>
       <bpmn:outgoing>Flow_0evbe69</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_0evbe69" sourceRef="RevisarAnuncio" targetRef="Gateway_129e940" />
-    <bpmn:sequenceFlow id="Flow_1937min" name="Ok" sourceRef="Gateway_1t9dgzg" targetRef="InclusaoDoc" />
+    <bpmn:sequenceFlow id="Flow_0evbe69" sourceRef="TaskRevisarAnuncio" targetRef="Gateway_129e940" />
+    <bpmn:sequenceFlow id="Flow_1937min" name="Ok" sourceRef="Gateway_1t9dgzg" targetRef="TaskInclusaoDoc">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${(processInstance.empresaVeiculo.docRegular == true)}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_0b8os5g" sourceRef="StartEvent_1" targetRef="VerificarDocDelegate" />
-    <bpmn:serviceTask id="VerificarDocDelegate" name="VerificarDoc" camunda:delegateExpression="${VerificarDocDelegate}">
+    <bpmn:serviceTask id="VerificarDocDelegate" name="VerificarDoc" camunda:delegateExpression="${verificarDocDelegate}">
       <bpmn:incoming>Flow_0b8os5g</bpmn:incoming>
       <bpmn:outgoing>Flow_1hxtzps</bpmn:outgoing>
     </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1hoh65a" sourceRef="TaskRegularizarVeiculo" targetRef="Gateway_027qrrb" />
+    <bpmn:sequenceFlow id="Flow_1uk1dfl" name="Nao pago" sourceRef="Gateway_027qrrb" targetRef="Event_1rz2ypi">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${(processInstance.empresaVeiculo.docRegular == false)}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1cteyjr" name="Pago" sourceRef="Gateway_027qrrb" targetRef="TaskInclusaoDoc">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${(processInstance.empresaVeiculo.docRegular == true)}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:exclusiveGateway id="Gateway_027qrrb" name="Verificar se foi pago">
+      <bpmn:incoming>Flow_1hoh65a</bpmn:incoming>
+      <bpmn:outgoing>Flow_1uk1dfl</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1cteyjr</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_1rz2ypi" name="Fim do processo">
+      <bpmn:incoming>Flow_1uk1dfl</bpmn:incoming>
+    </bpmn:endEvent>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1kz572a">
       <bpmndi:BPMNShape id="Participant_0llnxqg_di" bpmnElement="EmpresaVeiculoGeral" isHorizontal="true">
         <dc:Bounds x="160" y="80" width="1040" height="770" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1aixa1t_di" bpmnElement="Secretaria" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1010" height="250" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_0edkhuw_di" bpmnElement="Marketing" isHorizontal="true">
@@ -141,10 +167,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_0o6nqvv_di" bpmnElement="Gerente" isHorizontal="true">
         <dc:Bounds x="190" y="330" width="1010" height="250" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_1aixa1t_di" bpmnElement="Secretaria" isHorizontal="true">
-        <dc:Bounds x="190" y="80" width="1010" height="250" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
@@ -180,35 +202,35 @@
           <dc:Bounds x="215.5" y="503" width="49" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1c30o8b_di" bpmnElement="RegularizarVeiculo">
+      <bpmndi:BPMNShape id="Activity_1c30o8b_di" bpmnElement="TaskRegularizarVeiculo">
         <dc:Bounds x="820" y="120" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1rluqib_di" bpmnElement="InclusaoDoc">
+      <bpmndi:BPMNShape id="Activity_1rluqib_di" bpmnElement="TaskInclusaoDoc">
         <dc:Bounds x="550" y="240" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_19xmeyj_di" bpmnElement="VerificarEstadoDoVeiculo">
+      <bpmndi:BPMNShape id="Activity_19xmeyj_di" bpmnElement="TaskVerificarEstadoDoVeiculo">
         <dc:Bounds x="250" y="360" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1vx4a1p_di" bpmnElement="EnviarParaReparo">
+      <bpmndi:BPMNShape id="Activity_1vx4a1p_di" bpmnElement="EnviarParaReparoDelegate">
         <dc:Bounds x="380" y="460" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_07t41v9_di" bpmnElement="IncluirFotos">
+      <bpmndi:BPMNShape id="Activity_07t41v9_di" bpmnElement="TaskIncluirFotos">
         <dc:Bounds x="250" y="620" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1c58pv8_di" bpmnElement="AprovarFotos">
+      <bpmndi:BPMNShape id="Activity_1c58pv8_di" bpmnElement="TaskAprovarFotos">
         <dc:Bounds x="510" y="460" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0b7aw7w_di" bpmnElement="CadastrarAnuncio">
+      <bpmndi:BPMNShape id="Activity_0b7aw7w_di" bpmnElement="TaskCadastrarAnuncio">
         <dc:Bounds x="870" y="620" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0a13hl3_di" bpmnElement="RevisarAnuncio">
+      <bpmndi:BPMNShape id="Activity_0a13hl3_di" bpmnElement="TaskRevisarAnuncio">
         <dc:Bounds x="740" y="420" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
@@ -216,27 +238,23 @@
         <dc:Bounds x="380" y="120" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_027qrrb_di" bpmnElement="Gateway_027qrrb" isMarkerVisible="true">
+        <dc:Bounds x="845" y="235" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="835" y="286" width="70" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1rz2ypi_di" bpmnElement="Event_1rz2ypi">
+        <dc:Bounds x="992" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="969" y="285" width="82" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0wmgp6x_di" bpmnElement="Flow_0wmgp6x">
         <di:waypoint x="625" y="160" />
         <di:waypoint x="820" y="160" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="688" y="142" width="32" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_016hfcf_di" bpmnElement="Flow_016hfcf">
-        <di:waypoint x="300" y="535" />
-        <di:waypoint x="300" y="620" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="308" y="546" width="15" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_18m0z8u_di" bpmnElement="Flow_18m0z8u">
-        <di:waypoint x="690" y="685" />
-        <di:waypoint x="690" y="740" />
-        <di:waypoint x="300" y="740" />
-        <di:waypoint x="300" y="700" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="479" y="722" width="32" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0ormlpm_di" bpmnElement="Flow_0ormlpm">
@@ -246,13 +264,6 @@
           <dc:Bounds x="325" y="492" width="32" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_115950n_di" bpmnElement="Flow_115950n">
-        <di:waypoint x="920" y="485" />
-        <di:waypoint x="920" y="620" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="924" y="532" width="32" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1ih6gxb_di" bpmnElement="Flow_1ih6gxb">
         <di:waypoint x="945" y="460" />
         <di:waypoint x="1002" y="460" />
@@ -260,21 +271,9 @@
           <dc:Bounds x="966" y="442" width="15" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_03z6vlh_di" bpmnElement="Flow_03z6vlh">
-        <di:waypoint x="715" y="660" />
-        <di:waypoint x="870" y="660" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="785" y="642" width="15" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1hxtzps_di" bpmnElement="Flow_1hxtzps">
         <di:waypoint x="480" y="160" />
         <di:waypoint x="575" y="160" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_11wrp5a_di" bpmnElement="Flow_11wrp5a">
-        <di:waypoint x="870" y="200" />
-        <di:waypoint x="870" y="280" />
-        <di:waypoint x="650" y="280" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1u5w0i9_di" bpmnElement="Flow_1u5w0i9">
         <di:waypoint x="550" y="280" />
@@ -291,6 +290,22 @@
         <di:waypoint x="300" y="440" />
         <di:waypoint x="300" y="485" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18m0z8u_di" bpmnElement="Flow_18m0z8u">
+        <di:waypoint x="690" y="685" />
+        <di:waypoint x="690" y="740" />
+        <di:waypoint x="300" y="740" />
+        <di:waypoint x="300" y="700" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="479" y="722" width="32" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_016hfcf_di" bpmnElement="Flow_016hfcf">
+        <di:waypoint x="300" y="535" />
+        <di:waypoint x="300" y="620" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="308" y="546" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1ieehyw_di" bpmnElement="Flow_1ieehyw">
         <di:waypoint x="350" y="660" />
         <di:waypoint x="560" y="660" />
@@ -300,6 +315,20 @@
         <di:waypoint x="610" y="500" />
         <di:waypoint x="690" y="500" />
         <di:waypoint x="690" y="635" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03z6vlh_di" bpmnElement="Flow_03z6vlh">
+        <di:waypoint x="715" y="660" />
+        <di:waypoint x="870" y="660" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="785" y="642" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_115950n_di" bpmnElement="Flow_115950n">
+        <di:waypoint x="920" y="485" />
+        <di:waypoint x="920" y="620" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="924" y="532" width="32" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_18a1zsw_di" bpmnElement="Flow_18a1zsw">
         <di:waypoint x="900" y="620" />
@@ -321,6 +350,26 @@
       <bpmndi:BPMNEdge id="Flow_0b8os5g_di" bpmnElement="Flow_0b8os5g">
         <di:waypoint x="268" y="160" />
         <di:waypoint x="380" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hoh65a_di" bpmnElement="Flow_1hoh65a">
+        <di:waypoint x="870" y="200" />
+        <di:waypoint x="870" y="235" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1uk1dfl_di" bpmnElement="Flow_1uk1dfl">
+        <di:waypoint x="895" y="260" />
+        <di:waypoint x="992" y="260" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="920" y="242" width="48" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1cteyjr_di" bpmnElement="Flow_1cteyjr">
+        <di:waypoint x="845" y="260" />
+        <di:waypoint x="748" y="260" />
+        <di:waypoint x="748" y="280" />
+        <di:waypoint x="650" y="280" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="750" y="267" width="26" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

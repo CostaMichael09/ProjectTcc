@@ -1,0 +1,25 @@
+{
+  "newProjectApp": {
+    "taskVerificarEstadoDoVeiculo": {
+      "home": {
+        "title": "Task Verificar Estado Do Veiculos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Task Verificar Estado Do Veiculo",
+        "createOrEditLabel": "Create or edit a Task Verificar Estado Do Veiculo",
+        "notFound": "No Task Verificar Estado Do Veiculos found"
+      },
+      "created": "A new Task Verificar Estado Do Veiculo is created with identifier {{ param }}",
+      "updated": "A Task Verificar Estado Do Veiculo is updated with identifier {{ param }}",
+      "deleted": "A Task Verificar Estado Do Veiculo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Task Verificar Estado Do Veiculo {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Verificar Estado Do Veiculo"
+      },
+      "id": "ID",
+      "estadoVeiculo": "Estado Veiculo",
+      "obsEstadoVeiculo": "Obs Estado Veiculo"
+    }
+  }
+}

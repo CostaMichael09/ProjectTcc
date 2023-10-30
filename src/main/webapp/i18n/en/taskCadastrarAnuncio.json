@@ -1,0 +1,33 @@
+{
+  "newProjectApp": {
+    "taskCadastrarAnuncio": {
+      "home": {
+        "title": "Task Cadastrar Anuncios",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Task Cadastrar Anuncio",
+        "createOrEditLabel": "Create or edit a Task Cadastrar Anuncio",
+        "notFound": "No Task Cadastrar Anuncios found"
+      },
+      "created": "A new Task Cadastrar Anuncio is created with identifier {{ param }}",
+      "updated": "A Task Cadastrar Anuncio is updated with identifier {{ param }}",
+      "deleted": "A Task Cadastrar Anuncio is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Task Cadastrar Anuncio {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Cadastrar Anuncio"
+      },
+      "id": "ID",
+      "renavam": "Renavam",
+      "placa": "Placa",
+      "docRegular": "Doc Regular",
+      "multa": "Multa",
+      "marca": "Marca",
+      "modelo": "Modelo",
+      "anoFabricacao": "Ano Fabricacao",
+      "anoModelo": "Ano Modelo",
+      "cor": "Cor",
+      "preco": "Preco"
+    }
+  }
+}

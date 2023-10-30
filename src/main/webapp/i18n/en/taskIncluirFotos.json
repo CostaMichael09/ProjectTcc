@@ -1,0 +1,24 @@
+{
+  "newProjectApp": {
+    "taskIncluirFotos": {
+      "home": {
+        "title": "Task Incluir Fotos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Task Incluir Fotos",
+        "createOrEditLabel": "Create or edit a Task Incluir Fotos",
+        "notFound": "No Task Incluir Fotos found"
+      },
+      "created": "A new Task Incluir Fotos is created with identifier {{ param }}",
+      "updated": "A Task Incluir Fotos is updated with identifier {{ param }}",
+      "deleted": "A Task Incluir Fotos is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Task Incluir Fotos {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Incluir Fotos"
+      },
+      "id": "ID",
+      "fotos": "Fotos"
+    }
+  }
+}
