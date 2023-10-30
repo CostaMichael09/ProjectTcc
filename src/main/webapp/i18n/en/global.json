@@ -21,6 +21,13 @@
         "empresaVeiculo": "Empresa Veiculo",
         "empresaVeiculoProcess": "Empresa Veiculo Process",
         "empresaVeiculoStartForm": "Empresa Veiculo Start Form",
+        "taskRegularizarVeiculo": "Task Regularizar Veiculo",
+        "taskInclusaoDoc": "Task Inclusao Doc",
+        "taskVerificarEstadoDoVeiculo": "Task Verificar Estado Do Veiculo",
+        "taskIncluirFotos": "Task Incluir Fotos",
+        "taskAprovarFotos": "Task Aprovar Fotos",
+        "taskCadastrarAnuncio": "Task Cadastrar Anuncio",
+        "taskRevisarAnuncio": "Task Revisar Anuncio",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

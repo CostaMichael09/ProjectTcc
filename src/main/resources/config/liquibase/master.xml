@@ -18,6 +18,13 @@
     <include file="config/liquibase/changelog/20231024210700_added_entity_EmpresaVeiculo.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20231024211100_added_entity_EmpresaVeiculoProcess.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20231024203500_added_entity_EmpresaVeiculoStartForm.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231024204309_added_entity_TaskRegularizarVeiculo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231024205110_added_entity_TaskInclusaoDoc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231024205200_added_entity_TaskVerificarEstadoDoVeiculo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231024205201_added_entity_TaskIncluirFotos.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231024205500_added_entity_TaskAprovarFotos.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231024205800_added_entity_TaskCadastrarAnuncio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231024210107_added_entity_TaskRevisarAnuncio.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->

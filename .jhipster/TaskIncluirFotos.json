@@ -1,0 +1,23 @@
+{
+  "fields": [
+    {
+      "fieldName": "fotos",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "relationships": [],
+  "entityType": "user-task-form",
+  "processBpmnId": "EmpresaVeiculoProcess",
+  "processEntityName": "EmpresaVeiculoProcess",
+  "taskBpmnId": "TaskIncluirFotos",
+  "domainEntityName": "EmpresaVeiculo",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "skipFakeData": true,
+  "name": "TaskIncluirFotos",
+  "changelogDate": "20231024205201"
+}
