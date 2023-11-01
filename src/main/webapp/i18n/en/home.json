@@ -1,19 +1,17 @@
 {
   "home": {
-    "title": "Welcome, Java Hipster!",
-    "subtitle": "This is your homepage",
+    "title": "Bem-vindo ao sistema Drive Easy <br>(Gerencie carros com facilidade)",
+    "subtitle": "Esta é a sua página inicial",
     "logged": {
-      "message": "You are logged in as user \"{{username}}\"."
+      "message": "Você está logado como usuário \"{{username}}\"."
     },
-    "question": "If you have any question on JHipster:",
+    "question": "Trabalho desenvolvido pelos alunos:",
     "link": {
-      "homepage": "JHipster homepage",
-      "stackoverflow": "JHipster on Stack Overflow",
-      "bugtracker": "JHipster bug tracker",
-      "chat": "JHipster public chat room",
-      "follow": "follow @jhipster on Twitter"
+      "linkedinMichael": "Michael Costa - 2018200580",
+      "linkedinVinicius": "Vinicius Lima - 2018200264",
+      "linkedinWenderson": "Wenderson Campos - 2018102183"
     },
-    "like": "If you like JHipster, don't forget to give us a star on",
+    "like": "Se você quiser ver nosso projeto, não se esqueça de ir no",
     "github": "GitHub"
   }
 }

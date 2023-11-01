@@ -1,25 +1,25 @@
 {
   "reset": {
     "request": {
-      "title": "Reset your password",
+      "title": "Redefina sua senha",
       "form": {
-        "button": "Reset password"
+        "button": "Redefinir senha"
       },
       "messages": {
-        "info": "Enter the email address you used to register",
-        "success": "Check your emails for details on how to reset your password."
+        "info": "Informe o endereço de e-mail que você usou para se cadastrar",
+        "success": "Verifique seus e-mails para obter detalhes sobre como redefinir sua senha."
       }
     },
     "finish": {
-      "title": "Reset password",
+      "title": "Redefinir senha",
       "form": {
-        "button": "Validate new password"
+        "button": "Validar nova senha"
       },
       "messages": {
-        "info": "Choose a new password",
-        "success": "<strong>Your password has been reset.</strong> Please ",
-        "keymissing": "The reset key is missing.",
-        "error": "Your password couldn't be reset. Remember a password request is only valid for 24 hours."
+        "info": "Escolha uma nova senha",
+        "success": "<strong>Sua senha foi redefinida.</strong> Por favor, ",
+        "keymissing": "A chave de redefinição está ausente.",
+        "error": "Sua senha não pôde ser redefinida. Lembre-se de que uma solicitação de senha é válida por apenas 24 horas."
       }
     }
   }
