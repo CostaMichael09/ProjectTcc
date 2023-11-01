@@ -66,10 +66,10 @@
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${(processInstance.empresaVeiculo.docRegular == false)}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_0ormlpm" name="NotOk" sourceRef="Gateway_0gdl4pg" targetRef="EnviarParaReparoDelegate">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!empty estadoNotOk}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${(processInstance.empresaVeiculo.estadoVeiculo == false)}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_1ih6gxb" name="Ok" sourceRef="Gateway_129e940" targetRef="Event_07d7plc">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!empty anuncioOk}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${(processInstance.empresaVeiculo.anuncioAprovado == true)}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:userTask id="TaskRegularizarVeiculo" name="TaskRegularizarVeiculo">
       <bpmn:incoming>Flow_0wmgp6x</bpmn:incoming>
@@ -87,17 +87,17 @@
       <bpmn:outgoing>Flow_06660si</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_1u5w0i9" sourceRef="TaskInclusaoDoc" targetRef="TaskVerificarEstadoDoVeiculo" />
-    <bpmn:serviceTask id="EnviarParaReparoDelegate" name="EnviarParaReparo" camunda:delegateExpression="${reparoVeiculo}">
+    <bpmn:serviceTask id="EnviarParaReparoDelegate" name="EnviarParaReparo" camunda:delegateExpression="${enviarParaReparoDelegate}">
       <bpmn:incoming>Flow_0ormlpm</bpmn:incoming>
       <bpmn:outgoing>Flow_0qggwxs</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_0qggwxs" sourceRef="EnviarParaReparoDelegate" targetRef="TaskVerificarEstadoDoVeiculo" />
     <bpmn:sequenceFlow id="Flow_06660si" sourceRef="TaskVerificarEstadoDoVeiculo" targetRef="Gateway_0gdl4pg" />
     <bpmn:sequenceFlow id="Flow_18m0z8u" name="NotOk" sourceRef="Gateway_1gfcdax" targetRef="TaskIncluirFotos">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!empty anuncioNotOk}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${(processInstance.empresaVeiculo.aprovarFotos == false)}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_016hfcf" name="Ok" sourceRef="Gateway_0gdl4pg" targetRef="TaskIncluirFotos">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!empty estadoOk}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${(processInstance.empresaVeiculo.estadoVeiculo == true)}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_1ieehyw" sourceRef="TaskIncluirFotos" targetRef="TaskAprovarFotos" />
     <bpmn:userTask id="TaskIncluirFotos" name="TaskIncluirFotos">
@@ -111,10 +111,10 @@
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_0kfbeye" sourceRef="TaskAprovarFotos" targetRef="Gateway_1gfcdax" />
     <bpmn:sequenceFlow id="Flow_03z6vlh" name="Ok" sourceRef="Gateway_1gfcdax" targetRef="TaskCadastrarAnuncio">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!empty fotosOk}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${(processInstance.empresaVeiculo.aprovarFotos == true)}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_115950n" name="NotOk" sourceRef="Gateway_129e940" targetRef="TaskCadastrarAnuncio">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!empty anuncioNotOk}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${(processInstance.empresaVeiculo.anuncioAprovado == false)}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:userTask id="TaskCadastrarAnuncio" name="TaskCadastrarAnuncio">
       <bpmn:incoming>Flow_03z6vlh</bpmn:incoming>

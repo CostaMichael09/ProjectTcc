@@ -1,31 +1,31 @@
 {
   "userManagement": {
     "home": {
-      "title": "Users",
-      "refreshListLabel": "Refresh list",
-      "createLabel": "Create a new user",
-      "createOrEditLabel": "Create or edit a user"
+      "title": "Usuários",
+      "refreshListLabel": "Atualizar lista",
+      "createLabel": "Criar um novo usuário",
+      "createOrEditLabel": "Criar ou editar um usuário"
     },
-    "created": "A new user is created with identifier {{ param }}",
-    "updated": "A user is updated with identifier {{ param }}",
-    "deleted": "A user is deleted with identifier {{ param }}",
+    "created": "Um novo usuário foi criado com o identificador {{ param }}",
+    "updated": "Um usuário foi atualizado com o identificador {{ param }}",
+    "deleted": "Um usuário foi excluído com o identificador {{ param }}",
     "delete": {
-      "question": "Are you sure you want to delete user {{ login }}?"
+      "question": "Tem certeza de que deseja excluir o usuário {{ login }}?"
     },
     "detail": {
-      "title": "User"
+      "title": "Usuário"
     },
     "login": "Login",
-    "firstName": "First name",
-    "lastName": "Last name",
-    "email": "Email",
-    "activated": "Activated",
-    "deactivated": "Deactivated",
-    "profiles": "Profiles",
-    "langKey": "Language",
-    "createdBy": "Created by",
-    "createdDate": "Created date",
-    "lastModifiedBy": "Modified by",
-    "lastModifiedDate": "Modified date"
+    "firstName": "Nome",
+    "lastName": "Sobrenome",
+    "email": "E-mail",
+    "activated": "Ativado",
+    "deactivated": "Desativado",
+    "profiles": "Perfis",
+    "langKey": "Idioma",
+    "createdBy": "Criado por",
+    "createdDate": "Data de criação",
+    "lastModifiedBy": "Modificado por",
+    "lastModifiedDate": "Data de modificação"
   }
 }

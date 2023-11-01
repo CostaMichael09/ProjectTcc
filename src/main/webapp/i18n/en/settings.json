@@ -1,30 +1,30 @@
 {
   "settings": {
-    "title": "User settings for [<strong>{{username}}</strong>]",
+    "title": "Configurações de usuário para [<strong>{{username}}</strong>]",
     "form": {
-      "firstname": "First Name",
-      "firstname.placeholder": "Your first name",
-      "lastname": "Last Name",
-      "lastname.placeholder": "Your last name",
-      "language": "Language",
-      "button": "Save"
+      "firstname": "Nome",
+      "firstname.placeholder": "Seu primeiro nome",
+      "lastname": "Sobrenome",
+      "lastname.placeholder": "Seu sobrenome",
+      "language": "Idioma",
+      "button": "Salvar"
     },
     "messages": {
       "error": {
-        "fail": "<strong>An error has occurred!</strong> Settings could not be saved.",
-        "emailexists": "<strong>Email is already in use!</strong> Please choose another one."
+        "fail": "<strong>Ocorreu um erro!</strong> As configurações não puderam ser salvas.",
+        "emailexists": "<strong>O e-mail já está em uso!</strong> Por favor, escolha outro."
       },
-      "success": "<strong>Settings saved!</strong>",
+      "success": "<strong>Configurações salvas!</strong>",
       "validate": {
         "firstname": {
-          "required": "Your first name is required.",
-          "minlength": "Your first name is required to be at least 1 character",
-          "maxlength": "Your first name cannot be longer than 50 characters"
+          "required": "Seu primeiro nome é obrigatório.",
+          "minlength": "Seu primeiro nome deve ter pelo menos 1 caractere.",
+          "maxlength": "Seu primeiro nome não pode ter mais de 50 caracteres."
         },
         "lastname": {
-          "required": "Your last name is required.",
-          "minlength": "Your last name is required to be at least 1 character",
-          "maxlength": "Your last name cannot be longer than 50 characters"
+          "required": "Seu sobrenome é obrigatório.",
+          "minlength": "Seu sobrenome deve ter pelo menos 1 caractere.",
+          "maxlength": "Seu sobrenome não pode ter mais de 50 caracteres."
         }
       }
     }

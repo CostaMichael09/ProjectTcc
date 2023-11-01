@@ -1,6 +1,6 @@
 <template>
   <div id="footer" class="footer">
-    <p>Powered by AgileKip Generator</p>
+    <p>Powered by Michael, Vinicius and Wenderson</p>
   </div>
 </template>
 
