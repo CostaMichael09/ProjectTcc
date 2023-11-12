@@ -3,14 +3,15 @@
     <div class="col-10">
       <div v-if="taskContext.taskInstance">
         <h2 id="page-heading" data-cy="TaskInstanceHeading">
-          <span v-text="$t('newProjectApp.taskInstance.execute.title')" id="task-instance-heading">Task Execution</span>
+          <span v-text="$t('newProjectApp.taskInclusaoDoc.home.title')" id="task-instance-heading">Task Execution</span>
         </h2>
         <akip-show-task-instance :taskInstance="taskContext.taskInstance">
           <template v-slot:body>
-            <hr />
+            <hr/>
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.renavam')" for="task-inclusao-doc-renavam"
-                >Renavam</label
+              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.renavam')"
+                     for="task-inclusao-doc-renavam"
+              >Renavam</label
               >
               <input
                 type="text"
@@ -27,8 +28,9 @@
               />
             </div>
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.placa')" for="task-inclusao-doc-placa"
-                >Placa</label
+              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.placa')"
+                     for="task-inclusao-doc-placa"
+              >Placa</label
               >
               <input
                 type="text"
@@ -45,26 +47,26 @@
               />
             </div>
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.docRegular')" for="task-inclusao-doc-docRegular"
-                >Doc Regular</label
-              >
+              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.docRegular')"
+                     for="task-inclusao-doc-docRegular">Doc Regular</label>
               <input
-                type="checkbox"
-                class="form-check"
+                type="text"
+                class="form-control"
                 name="docRegular"
                 id="task-inclusao-doc-docRegular"
                 readonly
                 data-cy="docRegular"
                 :class="{
-                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.docRegular.$invalid,
-                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.docRegular.$invalid,
-                }"
-                v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.docRegular.$model"
+      valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.docRegular.$invalid,
+      invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.docRegular.$invalid,
+    }"
+                v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.docRegular.$model ? 'Sim' : 'Não'"
               />
             </div>
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.multa')" for="task-inclusao-doc-multa"
-                >Multa</label
+              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.multa')"
+                     for="task-inclusao-doc-multa"
+              >Multa</label
               >
               <input
                 type="number"
@@ -80,26 +82,38 @@
                 v-model.number="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.multa.$model"
               />
             </div>
+            <pdf
+              :view="true"
+              :empresaVeiculoProcess="taskContext.empresaVeiculoProcess">
+            </pdf>
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.marca')" for="task-inclusao-doc-marca"
-                >Marca</label
-              >
-              <input
-                type="text"
+              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.marca')" for="task-inclusao-doc-marca">Marca</label>
+              <select
                 class="form-control"
                 name="marca"
                 id="task-inclusao-doc-marca"
                 data-cy="marca"
                 :class="{
-                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.marca.$invalid,
-                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.marca.$invalid,
-                }"
+      valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.marca.$invalid,
+      invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.marca.$invalid,
+    }"
                 v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.marca.$model"
-              />
+              >
+                <option value="Fiat">Fiat</option>
+                <option value="Ford">Ford</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="Citroen">Citroen</option>
+                <option value="Renault">Renault</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Honda">Honda</option>
+              </select>
             </div>
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.modelo')" for="task-inclusao-doc-modelo"
-                >Modelo</label
+              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.modelo')"
+                     for="task-inclusao-doc-modelo"
+              >Modelo</label
               >
               <input
                 type="text"
@@ -115,12 +129,7 @@
               />
             </div>
             <div class="form-group">
-              <label
-                class="form-control-label"
-                v-text="$t('newProjectApp.taskInclusaoDoc.anoFabricacao')"
-                for="task-inclusao-doc-anoFabricacao"
-                >Ano Fabricacao</label
-              >
+              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.anoFabricacao')" for="task-inclusao-doc-anoFabricacao">Ano Fabricacao</label>
               <input
                 type="number"
                 class="form-control"
@@ -128,31 +137,36 @@
                 id="task-inclusao-doc-anoFabricacao"
                 data-cy="anoFabricacao"
                 :class="{
-                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoFabricacao.$invalid,
-                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoFabricacao.$invalid,
-                }"
+        valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoFabricacao.$invalid,
+        invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoFabricacao.$invalid,
+      }"
                 v-model.number="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoFabricacao.$model"
               />
             </div>
+
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.anoModelo')" for="task-inclusao-doc-anoModelo"
-                >Ano Modelo</label
-              >
-              <input
-                type="number"
+              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.anoModelo')" for="task-inclusao-doc-anoModelo">Ano Modelo</label>
+              <select
                 class="form-control"
                 name="anoModelo"
                 id="task-inclusao-doc-anoModelo"
                 data-cy="anoModelo"
                 :class="{
-                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoModelo.$invalid,
-                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoModelo.$invalid,
-                }"
-                v-model.number="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoModelo.$model"
-              />
+        valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoModelo.$invalid,
+        invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoModelo.$invalid,
+      }"
+                v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoModelo.$model"
+              >
+                <option
+                  v-for="year in availableYears"
+                  :key="year"
+                  :value="year"
+                >{{ year }}</option>
+              </select>
             </div>
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.cor')" for="task-inclusao-doc-cor">Cor</label>
+              <label class="form-control-label" v-text="$t('newProjectApp.taskInclusaoDoc.cor')"
+                     for="task-inclusao-doc-cor">Cor</label>
               <input
                 type="text"
                 class="form-control"
@@ -168,9 +182,11 @@
             </div>
           </template>
         </akip-show-task-instance>
-        <br />
-        <button type="submit" v-on:click.prevent="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
-          <font-awesome-icon icon="arrow-left"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.back')"> Back</span>
+        <br/>
+        <button type="submit" v-on:click.prevent="previousState()" class="btn btn-info"
+                data-cy="entityDetailsBackButton">
+          <font-awesome-icon icon="arrow-left"></font-awesome-icon>&nbsp;<span
+          v-text="$t('entity.action.back')"> Back</span>
         </button>
         <button type="submit" v-on:click.prevent="complete()" class="btn btn-success" data-cy="complete">
           <font-awesome-icon icon="check-circle"></font-awesome-icon>&nbsp;Complete

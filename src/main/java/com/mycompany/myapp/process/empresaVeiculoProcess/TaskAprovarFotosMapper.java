@@ -16,7 +16,7 @@ public interface TaskAprovarFotosMapper {
 
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
-    @Mapping(target = "fotos", source = "fotos")
+//    @Mapping(target = "fotos", source = "fotos")
     @Mapping(target = "aprovarFotos", source = "aprovarFotos")
     EmpresaVeiculoDTO toEmpresaVeiculoDTO(EmpresaVeiculo empresaVeiculo);
 }

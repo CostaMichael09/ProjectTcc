@@ -16,6 +16,6 @@ public interface TaskIncluirFotosMapper {
 
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
-    @Mapping(target = "fotos", source = "fotos")
+//    @Mapping(target = "fotos", source = "fotos")
     EmpresaVeiculoDTO toEmpresaVeiculoDTO(EmpresaVeiculo empresaVeiculo);
 }

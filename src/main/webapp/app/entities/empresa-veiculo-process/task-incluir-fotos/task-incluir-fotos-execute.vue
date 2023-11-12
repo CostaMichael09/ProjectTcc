@@ -3,27 +3,16 @@
     <div class="col-10">
       <div v-if="taskContext.taskInstance">
         <h2 id="page-heading" data-cy="TaskInstanceHeading">
-          <span v-text="$t('newProjectApp.taskInstance.execute.title')" id="task-instance-heading">Task Execution</span>
+          <span v-text="$t('newProjectApp.taskIncluirFotos.home.title')" id="task-instance-heading">Task Execution</span>
         </h2>
         <akip-show-task-instance :taskInstance="taskContext.taskInstance">
           <template v-slot:body>
             <hr />
-            <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskIncluirFotos.fotos')" for="task-incluir-fotos-fotos"
-                >Fotos</label
-              >
-              <textarea
-                class="form-control"
-                name="fotos"
-                id="task-incluir-fotos-fotos"
-                data-cy="fotos"
-                :class="{
-                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.fotos.$invalid,
-                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.fotos.$invalid,
-                }"
-                v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.fotos.$model"
-              ></textarea>
-            </div>
+            <img-component
+            :view="false"
+            :empresa-veiculo-process="taskContext.empresaVeiculoProcess"
+            >
+            </img-component>
           </template>
         </akip-show-task-instance>
         <br />

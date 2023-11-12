@@ -1,5 +1,7 @@
 package com.mycompany.myapp.service.dto;
 
+import com.mycompany.myapp.domain.Arquivos;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -33,9 +35,6 @@ public class EmpresaVeiculoDTO implements Serializable {
     private Boolean estadoVeiculo;
 
     private String obsEstadoVeiculo;
-
-    @Lob
-    private String fotos;
 
     private Boolean aprovarFotos;
 
@@ -139,14 +138,6 @@ public class EmpresaVeiculoDTO implements Serializable {
         this.obsEstadoVeiculo = obsEstadoVeiculo;
     }
 
-    public String getFotos() {
-        return fotos;
-    }
-
-    public void setFotos(String fotos) {
-        this.fotos = fotos;
-    }
-
     public Boolean getAprovarFotos() {
         return aprovarFotos;
     }
@@ -208,7 +199,6 @@ public class EmpresaVeiculoDTO implements Serializable {
             ", cor='" + getCor() + "'" +
             ", estadoVeiculo='" + getEstadoVeiculo() + "'" +
             ", obsEstadoVeiculo='" + getObsEstadoVeiculo() + "'" +
-            ", fotos='" + getFotos() + "'" +
             ", aprovarFotos='" + getAprovarFotos() + "'" +
             ", preco=" + getPreco() +
             ", anuncioAprovado='" + getAnuncioAprovado() + "'" +

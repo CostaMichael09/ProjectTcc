@@ -35,6 +35,10 @@ import CarroService from '@/entities/carro/carro.service';
 import CarroProcessService from '@/entities/carro-process/carro-process.service';
 import EmpresaVeiculoService from '@/entities/empresa-veiculo/empresa-veiculo.service';
 import EmpresaVeiculoProcessService from '@/entities/empresa-veiculo-process/empresa-veiculo-process.service';
+import PdfService from "@/component/pdf/pdf.service";
+import ImgService from "@/component/img/img.service";
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {fas} from "@fortawesome/free-solid-svg-icons";
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 /* tslint:enable */
@@ -44,6 +48,7 @@ config.initFortAwesome(Vue);
 bootstrapVueConfig.initBootstrapVue(Vue);
 Vue.use(Vue2Filters);
 Vue.use(ToastPlugin);
+library.add(fas)
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('jhi-item-count', JhiItemCountComponent);
 Vue.component('jhi-sort-indicator', JhiSortIndicatorComponent);
@@ -79,7 +84,7 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
+export const EventBus = new Vue();
 /* tslint:disable */
 new Vue({
   el: '#app',
@@ -104,6 +109,8 @@ new Vue({
     empresaVeiculoProcessService: () => new EmpresaVeiculoProcessService(),
     // jhipster-needle-add-entity-service-to-main - JHipster will import entities services here
     accountService: () => accountService,
+    pdfService: () => PdfService,
+    imgService: () => ImgService
   },
   i18n,
   store,

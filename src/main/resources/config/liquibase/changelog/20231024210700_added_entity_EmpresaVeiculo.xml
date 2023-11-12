@@ -44,7 +44,7 @@
             <column name="estado_veiculo" type="boolean">
                 <constraints nullable="true" />
             </column>
-            <column name="obs_estado_veiculo" type="varchar(255)">
+            <column name="obs_estado_veiculo" type="varchar(1000)">
                 <constraints nullable="true" />
             </column>
             <column name="fotos" type="${clobType}">

@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-10">
       <h2 id="page-heading" data-cy="TaskInstanceHeading">
-        <span v-text="$t('newProjectApp.taskInstance.details.title')" id="task-instance-heading">Task Details</span>
+        <span v-text="$t('newProjectApp.taskVerificarEstadoDoVeiculo.home.title')" id="task-instance-heading">Task Details</span>
       </h2>
       <div v-if="taskContext.taskInstance">
         <akip-show-task-instance :taskInstance="taskContext.taskInstance">
@@ -19,22 +19,20 @@
                 name="estadoVeiculo"
                 id="empresa-veiculo-estadoVeiculo"
                 data-cy="estadoVeiculo"
-                v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.estadoVeiculo"
+                v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.estadoVeiculo ? 'Bom' : 'Precisando de reparo'"
               />
             </div>
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskVerificarEstadoDoVeiculo.obsEstadoVeiculo')"
-                >obsEstadoVeiculo</label
-              >
-              <input
-                readonly
-                type="text"
+              <label class="form-control-label" v-text="$t('newProjectApp.taskVerificarEstadoDoVeiculo.obsEstadoVeiculo')" for="task-verificar-estado-do-veiculo-obsEstadoVeiculo">Obs Estado Veiculo</label>
+              <textarea
                 class="form-control"
                 name="obsEstadoVeiculo"
-                id="empresa-veiculo-obsEstadoVeiculo"
+                id="task-verificar-estado-do-veiculo-obsEstadoVeiculo"
                 data-cy="obsEstadoVeiculo"
                 v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.obsEstadoVeiculo"
-              />
+                rows="5"
+                readonly
+              ></textarea>
             </div>
           </template>
         </akip-show-task-instance>

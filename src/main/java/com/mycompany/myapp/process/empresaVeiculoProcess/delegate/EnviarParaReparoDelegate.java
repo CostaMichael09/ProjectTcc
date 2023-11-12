@@ -29,6 +29,8 @@ public class EnviarParaReparoDelegate implements JavaDelegate {
         if (empresaVeiculoDTO.isPresent()) {
             Random random = new Random();
             empresaVeiculoDTO.get().setEstadoVeiculo(random.nextBoolean());
+
+            empresaVeiculoDTO.get().setObsEstadoVeiculo(empresaVeiculoDTO.get() + "(Resolvido)");
             empresaVeiculoService.save(empresaVeiculoDTO.get());
         } else {
             log.info("Veiculo nao encontrado no EnviarParaReparoDelegate");

@@ -3,7 +3,7 @@
     <div class="col-10">
       <div v-if="taskContext.taskInstance">
         <h2 id="page-heading" data-cy="TaskInstanceHeading">
-          <span v-text="$t('newProjectApp.taskInstance.execute.title')" id="task-instance-heading">Task Execution</span>
+          <span v-text="$t('newProjectApp.taskCadastrarAnuncio.home.title')" id="task-instance-heading">Task Execution</span>
         </h2>
         <akip-show-task-instance :taskInstance="taskContext.taskInstance">
           <template v-slot:body>
@@ -55,42 +55,68 @@
                 >Doc Regular</label
               >
               <input
-                type="checkbox"
-                class="form-check"
-                name="docRegular"
-                id="task-cadastrar-anuncio-docRegular"
                 readonly
+                type="text"
+                class="form-control"
+                name="docRegular"
+                id="empresa-veiculo-docRegular"
                 data-cy="docRegular"
                 :class="{
                   valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.docRegular.$invalid,
                   invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.docRegular.$invalid,
                 }"
-                v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.docRegular.$model"
+                v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.docRegular.$model ? 'Sim' : 'Não'"
               />
             </div>
             <div class="form-group">
               <label class="form-control-label" v-text="$t('newProjectApp.taskCadastrarAnuncio.multa')" for="task-cadastrar-anuncio-multa"
                 >Multa</label
               >
-              <input
-                type="number"
-                class="form-control"
-                name="multa"
-                id="task-cadastrar-anuncio-multa"
-                readonly
-                data-cy="multa"
-                :class="{
-                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.multa.$invalid,
-                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.multa.$invalid,
-                }"
-                v-model.number="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.multa.$model"
-              />
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">R$</span>
+                </div>
+                <currency-input
+                  id="task-regularizar-veiculo-multa"
+                  class="form-control"
+                  data-cy="multa"
+                  v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.multa.$model"
+                  readonly
+                  :currency="null"
+                  :precision="2"
+                  :auto-decimal-mode="false"
+                  :allow-negative="false"
+                />
+              </div>
             </div>
             <div class="form-group">
               <label class="form-control-label" v-text="$t('newProjectApp.taskCadastrarAnuncio.marca')" for="task-cadastrar-anuncio-marca"
                 >Marca</label
               >
+              <select
+                v-if="!taskContext.empresaVeiculoProcess.empresaVeiculo.anuncioAprovado"
+                class="form-control"
+                name="marca"
+                id="task-inclusao-doc-marca"
+                data-cy="marca"
+                :class="{
+      valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.marca.$invalid,
+      invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.marca.$invalid,
+    }"
+                v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.marca.$model"
+              >
+                <option value="Fiat">Fiat</option>
+                <option value="Ford">Ford</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="Citroen">Citroen</option>
+                <option value="Renault">Renault</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Honda">Honda</option>
+              </select>
               <input
+                v-else
                 type="text"
                 class="form-control"
                 name="marca"
@@ -109,6 +135,20 @@
                 >Modelo</label
               >
               <input
+                v-if="!taskContext.empresaVeiculoProcess.empresaVeiculo.anuncioAprovado"
+                type="text"
+                class="form-control"
+                name="modelo"
+                id="task-cadastrar-anuncio-modelo"
+                data-cy="modelo"
+                :class="{
+                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.modelo.$invalid,
+                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.modelo.$invalid,
+                }"
+                v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.modelo.$model"
+              />
+              <input
+                v-else
                 type="text"
                 class="form-control"
                 name="modelo"
@@ -130,6 +170,20 @@
                 >Ano Fabricacao</label
               >
               <input
+                v-if="!taskContext.empresaVeiculoProcess.empresaVeiculo.anuncioAprovado"
+                type="number"
+                class="form-control"
+                name="anoFabricacao"
+                id="task-cadastrar-anuncio-anoFabricacao"
+                data-cy="anoFabricacao"
+                :class="{
+                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoFabricacao.$invalid,
+                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoFabricacao.$invalid,
+                }"
+                v-model.number="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoFabricacao.$model"
+              />
+              <input
+                v-else
                 type="number"
                 class="form-control"
                 name="anoFabricacao"
@@ -150,7 +204,26 @@
                 for="task-cadastrar-anuncio-anoModelo"
                 >Ano Modelo</label
               >
+              <select
+                v-if="!taskContext.empresaVeiculoProcess.empresaVeiculo.anuncioAprovado"
+                class="form-control"
+                name="anoModelo"
+                id="task-inclusao-doc-anoModelo"
+                data-cy="anoModelo"
+                :class="{
+        valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoModelo.$invalid,
+        invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoModelo.$invalid,
+      }"
+                v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.anoModelo.$model"
+              >
+                <option
+                  v-for="year in availableYears"
+                  :key="year"
+                  :value="year"
+                >{{ year }}</option>
+              </select>
               <input
+                v-else
                 type="number"
                 class="form-control"
                 name="anoModelo"
@@ -169,6 +242,20 @@
                 >Cor</label
               >
               <input
+                v-if="!taskContext.empresaVeiculoProcess.empresaVeiculo.anuncioAprovado"
+                type="text"
+                class="form-control"
+                name="cor"
+                id="task-cadastrar-anuncio-cor"
+                data-cy="cor"
+                :class="{
+                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.cor.$invalid,
+                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.cor.$invalid,
+                }"
+                v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.cor.$model"
+              />
+              <input
+                v-else
                 type="text"
                 class="form-control"
                 name="cor"
@@ -186,18 +273,21 @@
               <label class="form-control-label" v-text="$t('newProjectApp.taskCadastrarAnuncio.preco')" for="task-cadastrar-anuncio-preco"
                 >Preco</label
               >
-              <input
-                type="number"
-                class="form-control"
-                name="preco"
-                id="task-cadastrar-anuncio-preco"
-                data-cy="preco"
-                :class="{
-                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.preco.$invalid,
-                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.preco.$invalid,
-                }"
-                v-model.number="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.preco.$model"
-              />
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">R$</span>
+                </div>
+                <currency-input
+                  id="task-regularizar-veiculo-multa"
+                  class="form-control"
+                  data-cy="preco"
+                  v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.preco.$model"
+                  :currency="null"
+                  :precision="2"
+                  :auto-decimal-mode="false"
+                  :allow-negative="false"
+                />
+              </div>
             </div>
           </template>
         </akip-show-task-instance>

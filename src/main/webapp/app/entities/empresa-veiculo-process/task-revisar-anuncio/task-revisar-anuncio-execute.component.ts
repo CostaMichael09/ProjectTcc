@@ -1,4 +1,4 @@
-import { Component, Vue, Inject } from 'vue-property-decorator';
+import {Component, Vue, Inject, Watch} from 'vue-property-decorator';
 
 import TaskRevisarAnuncioService from './task-revisar-anuncio.service';
 import { TaskRevisarAnuncioContext } from './task-revisar-anuncio.model';
@@ -30,6 +30,7 @@ export default class TaskRevisarAnuncioExecuteComponent extends Vue {
   private taskRevisarAnuncioService: TaskRevisarAnuncioService = new TaskRevisarAnuncioService();
   private taskContext: TaskRevisarAnuncioContext = {};
   public isSaving = false;
+  public showReanuncio = false;
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -55,5 +56,18 @@ export default class TaskRevisarAnuncioExecuteComponent extends Vue {
     });
   }
 
+ public teste() {
+   console.log(this.taskContext.empresaVeiculoProcess.empresaVeiculo.anuncioAprovado);
+   this.$forceUpdate();
+   this.showReanuncio = this.taskContext.empresaVeiculoProcess.empresaVeiculo.anuncioAprovado;
+
+   this.$nextTick(() => {
+     this.$forceUpdate();
+   });
+ }
+
+  get isAnuncioNaoAprovado(): boolean {
+    return !this.taskContext.empresaVeiculoProcess.empresaVeiculo.anuncioAprovado;
+  }
   public initRelationships(): void {}
 }

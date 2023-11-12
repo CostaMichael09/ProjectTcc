@@ -73,7 +73,7 @@ public class TaskAprovarFotosService {
         EmpresaVeiculoDTO empresaVeiculoDTO = empresaVeiculoService
             .findOne(taskAprovarFotosContext.getEmpresaVeiculoProcess().getEmpresaVeiculo().getId())
             .orElseThrow();
-        empresaVeiculoDTO.setFotos(taskAprovarFotosContext.getEmpresaVeiculoProcess().getEmpresaVeiculo().getFotos());
+//        empresaVeiculoDTO.setFotos(taskAprovarFotosContext.getEmpresaVeiculoProcess().getEmpresaVeiculo().getFotos());
         empresaVeiculoDTO.setAprovarFotos(taskAprovarFotosContext.getEmpresaVeiculoProcess().getEmpresaVeiculo().getAprovarFotos());
         empresaVeiculoService.save(empresaVeiculoDTO);
     }

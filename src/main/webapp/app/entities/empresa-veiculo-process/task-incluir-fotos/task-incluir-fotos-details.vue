@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-10">
       <h2 id="page-heading" data-cy="TaskInstanceHeading">
-        <span v-text="$t('newProjectApp.taskInstance.details.title')" id="task-instance-heading">Task Details</span>
+        <span v-text="$t('newProjectApp.taskIncluirFotos.home.title')" id="task-instance-heading">Task Details</span>
       </h2>
       <div v-if="taskContext.taskInstance">
         <akip-show-task-instance :taskInstance="taskContext.taskInstance">
