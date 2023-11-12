@@ -1,3 +1,5 @@
+import {IArquivo} from "@/shared/model/arquivo.model";
+
 export interface IEmpresaVeiculo {
   id?: number;
   renavam?: string | null;
@@ -11,7 +13,7 @@ export interface IEmpresaVeiculo {
   cor?: string | null;
   estadoVeiculo?: boolean | null;
   obsEstadoVeiculo?: string | null;
-  fotos?: string | null;
+  arquivos?: IArquivo[] | null; // Adiciona o campo arquivos
   aprovarFotos?: boolean | null;
   preco?: number | null;
   anuncioAprovado?: boolean | null;
@@ -31,7 +33,7 @@ export class EmpresaVeiculo implements IEmpresaVeiculo {
     public cor?: string | null,
     public estadoVeiculo?: boolean | null,
     public obsEstadoVeiculo?: string | null,
-    public fotos?: string | null,
+    public arquivos?: IArquivo[] | null, // Adiciona o campo arquivos
     public aprovarFotos?: boolean | null,
     public preco?: number | null,
     public anuncioAprovado?: boolean | null

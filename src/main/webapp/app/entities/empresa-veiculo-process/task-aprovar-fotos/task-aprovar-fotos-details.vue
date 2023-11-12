@@ -2,24 +2,16 @@
   <div class="row justify-content-center">
     <div class="col-10">
       <h2 id="page-heading" data-cy="TaskInstanceHeading">
-        <span v-text="$t('newProjectApp.taskInstance.details.title')" id="task-instance-heading">Task Details</span>
+        <span v-text="$t('newProjectApp.taskAprovarFotos.home.title')" id="task-instance-heading">Task Details</span>
       </h2>
       <div v-if="taskContext.taskInstance">
         <akip-show-task-instance :taskInstance="taskContext.taskInstance">
           <template v-slot:body>
             <hr />
-            <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskAprovarFotos.fotos')">fotos</label>
-              <input
-                readonly
-                type="text"
-                class="form-control"
-                name="fotos"
-                id="empresa-veiculo-fotos"
-                data-cy="fotos"
-                v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.fotos"
-              />
-            </div>
+            <img-component
+            :view="true"
+            :empresa-veiculo-process="taskContext.empresaVeiculoProcess"
+            />
             <div class="form-group">
               <label class="form-control-label" v-text="$t('newProjectApp.taskAprovarFotos.aprovarFotos')">aprovarFotos</label>
               <input
@@ -29,7 +21,7 @@
                 name="aprovarFotos"
                 id="empresa-veiculo-aprovarFotos"
                 data-cy="aprovarFotos"
-                v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.aprovarFotos"
+                v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.aprovarFotos ? 'Aprovado' : 'Não Aprovado'"
               />
             </div>
           </template>

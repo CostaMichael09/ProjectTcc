@@ -3,46 +3,43 @@
     <div class="col-10">
       <div v-if="taskContext.taskInstance">
         <h2 id="page-heading" data-cy="TaskInstanceHeading">
-          <span v-text="$t('newProjectApp.taskInstance.execute.title')" id="task-instance-heading">Task Execution</span>
+          <span v-text="$t('newProjectApp.taskAprovarFotos.home.title')" id="task-instance-heading">Task Execution</span>
         </h2>
         <akip-show-task-instance :taskInstance="taskContext.taskInstance">
           <template v-slot:body>
             <hr />
-            <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskAprovarFotos.fotos')" for="task-aprovar-fotos-fotos"
-                >Fotos</label
-              >
-              <textarea
-                class="form-control"
-                name="fotos"
-                id="task-aprovar-fotos-fotos"
-                data-cy="fotos"
-                :class="{
-                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.fotos.$invalid,
-                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.fotos.$invalid,
-                }"
-                v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.fotos.$model"
-              ></textarea>
-            </div>
-            <div class="form-group">
-              <label
-                class="form-control-label"
-                v-text="$t('newProjectApp.taskAprovarFotos.aprovarFotos')"
-                for="task-aprovar-fotos-aprovarFotos"
-                >Aprovar Fotos</label
-              >
-              <input
-                type="checkbox"
-                class="form-check"
-                name="aprovarFotos"
-                id="task-aprovar-fotos-aprovarFotos"
-                data-cy="aprovarFotos"
-                :class="{
-                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.aprovarFotos.$invalid,
-                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.aprovarFotos.$invalid,
-                }"
-                v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.aprovarFotos.$model"
+            <img-component
+              :view="true"
+              :empresa-veiculo-process="taskContext.empresaVeiculoProcess"
               />
+            <div class="form-group">
+              <label class="form-control-label"
+                     v-text="$t('newProjectApp.taskAprovarFotos.aprovarFotos')"
+                     for="task-aprovar-fotos-aprovarFotos">Aprovar Fotos</label>
+
+              <select class="form-control"
+                      name="aprovarFotos"
+                      id="task-aprovar-fotos-aprovarFotos"
+                      data-cy="aprovarFotos"
+                      v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.aprovarFotos.$model">
+
+                <option :value="true"
+                        :selected="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.aprovarFotos.$model === true">
+                  Aprovado
+                </option>
+
+                <option :value="false"
+                        :selected="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.aprovarFotos.$model === false">
+                  Não Aprovado
+                </option>
+
+              </select>
+
+              <!-- Adicione classes de validação conforme necessário -->
+              <div :class="{
+        valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.aprovarFotos.$invalid,
+        invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.aprovarFotos.$invalid,
+    }"></div>
             </div>
           </template>
         </akip-show-task-instance>

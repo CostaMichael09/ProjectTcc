@@ -54,22 +54,29 @@
                     name="docRegular"
                     id="empresa-veiculo-docRegular"
                     data-cy="docRegular"
-                    v-model="empresaVeiculoProcess.empresaVeiculo.docRegular"
+                    v-model="empresaVeiculoProcess.empresaVeiculo.docRegular ? 'Sim' : 'Não'"
                   />
                 </div>
               </div>
               <div class="card-body py-0">
                 <div class="form-group">
                   <label class="form-control-label" v-text="$t('newProjectApp.empresaVeiculoProcess.multa')">multa</label>
-                  <input
-                    readonly
-                    type="text"
-                    class="form-control"
-                    name="multa"
-                    id="empresa-veiculo-multa"
-                    data-cy="multa"
-                    v-model="empresaVeiculoProcess.empresaVeiculo.multa"
-                  />
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">R$</span>
+                    </div>
+                    <currency-input
+                      id="task-regularizar-veiculo-multa"
+                      class="form-control"
+                      data-cy="multa"
+                      v-model="empresaVeiculoProcess.empresaVeiculo.multa"
+                      readonly
+                      :currency="null"
+                      :precision="2"
+                      :auto-decimal-mode="false"
+                      :allow-negative="false"
+                    />
+                  </div>
                 </div>
               </div>
               <div class="card-body py-0">
@@ -152,7 +159,7 @@
                     name="estadoVeiculo"
                     id="empresa-veiculo-estadoVeiculo"
                     data-cy="estadoVeiculo"
-                    v-model="empresaVeiculoProcess.empresaVeiculo.estadoVeiculo"
+                    v-model="empresaVeiculoProcess.empresaVeiculo.estadoVeiculo ? 'Bom' : 'Precisando de reparo'"
                   />
                 </div>
               </div>
@@ -174,20 +181,6 @@
               </div>
               <div class="card-body py-0">
                 <div class="form-group">
-                  <label class="form-control-label" v-text="$t('newProjectApp.empresaVeiculoProcess.fotos')">fotos</label>
-                  <input
-                    readonly
-                    type="text"
-                    class="form-control"
-                    name="fotos"
-                    id="empresa-veiculo-fotos"
-                    data-cy="fotos"
-                    v-model="empresaVeiculoProcess.empresaVeiculo.fotos"
-                  />
-                </div>
-              </div>
-              <div class="card-body py-0">
-                <div class="form-group">
                   <label class="form-control-label" v-text="$t('newProjectApp.empresaVeiculoProcess.aprovarFotos')">aprovarFotos</label>
                   <input
                     readonly
@@ -196,22 +189,29 @@
                     name="aprovarFotos"
                     id="empresa-veiculo-aprovarFotos"
                     data-cy="aprovarFotos"
-                    v-model="empresaVeiculoProcess.empresaVeiculo.aprovarFotos"
+                    v-model="empresaVeiculoProcess.empresaVeiculo.aprovarFotos ? 'Aprovado' : 'Não Aprovado'"
                   />
                 </div>
               </div>
               <div class="card-body py-0">
                 <div class="form-group">
                   <label class="form-control-label" v-text="$t('newProjectApp.empresaVeiculoProcess.preco')">preco</label>
-                  <input
-                    readonly
-                    type="text"
-                    class="form-control"
-                    name="preco"
-                    id="empresa-veiculo-preco"
-                    data-cy="preco"
-                    v-model="empresaVeiculoProcess.empresaVeiculo.preco"
-                  />
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">R$</span>
+                    </div>
+                    <currency-input
+                      id="task-regularizar-veiculo-multa"
+                      class="form-control"
+                      data-cy="preco"
+                      v-model="empresaVeiculoProcess.empresaVeiculo.preco"
+                      readonly
+                      :currency="null"
+                      :precision="2"
+                      :auto-decimal-mode="false"
+                      :allow-negative="false"
+                    />
+                  </div>
                 </div>
               </div>
               <div class="card-body py-0">
@@ -228,6 +228,22 @@
                     data-cy="anuncioAprovado"
                     v-model="empresaVeiculoProcess.empresaVeiculo.anuncioAprovado"
                   />
+                </div>
+              </div>
+              <div class="card-body py-0">
+                <div class="form-group">
+                  <label class="form-control-label"
+                  >Arquivos e Fotos:</label>
+                  <pdf
+                    :view="true"
+                    :empresaVeiculoProcess="empresaVeiculoProcess">
+                  </pdf>
+                  </br>
+                  <img-component
+                    :view="true"
+                    :empresa-veiculo-process="empresaVeiculoProcess">
+                  </img-component>
+
                 </div>
               </div>
             </div>

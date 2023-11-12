@@ -2,6 +2,9 @@ package com.mycompany.myapp.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -55,10 +58,6 @@ public class EmpresaVeiculo implements Serializable {
     @Column(name = "obs_estado_veiculo")
     private String obsEstadoVeiculo;
 
-    @Lob
-    @Type(type = "org.hibernate.type.TextType")
-    @Column(name = "fotos")
-    private String fotos;
 
     @Column(name = "aprovar_fotos")
     private Boolean aprovarFotos;
@@ -68,6 +67,9 @@ public class EmpresaVeiculo implements Serializable {
 
     @Column(name = "anuncio_aprovado")
     private Boolean anuncioAprovado;
+
+    @OneToMany(mappedBy = "empresaVeiculo", cascade = CascadeType.ALL, orphanRemoval = false)
+    private Set<Arquivos> arquivos;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -226,19 +228,6 @@ public class EmpresaVeiculo implements Serializable {
         this.obsEstadoVeiculo = obsEstadoVeiculo;
     }
 
-    public String getFotos() {
-        return this.fotos;
-    }
-
-    public EmpresaVeiculo fotos(String fotos) {
-        this.fotos = fotos;
-        return this;
-    }
-
-    public void setFotos(String fotos) {
-        this.fotos = fotos;
-    }
-
     public Boolean getAprovarFotos() {
         return this.aprovarFotos;
     }
@@ -313,7 +302,6 @@ public class EmpresaVeiculo implements Serializable {
             ", cor='" + getCor() + "'" +
             ", estadoVeiculo='" + getEstadoVeiculo() + "'" +
             ", obsEstadoVeiculo='" + getObsEstadoVeiculo() + "'" +
-            ", fotos='" + getFotos() + "'" +
             ", aprovarFotos='" + getAprovarFotos() + "'" +
             ", preco=" + getPreco() +
             ", anuncioAprovado='" + getAnuncioAprovado() + "'" +

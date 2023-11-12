@@ -91,6 +91,8 @@
     "vue-property-decorator": "9.1.2",
     "vue-router": "3.5.1",
     "vue2-filters": "0.12.0",
+    "vue-currency-filter": "^5.1.0",
+    "vue-currency-input": "^1.22.4",
     "vuelidate": "0.7.6",
     "vuex": "3.6.2"
   },

@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-10">
       <h2 id="page-heading" data-cy="TaskInstanceHeading">
-        <span v-text="$t('newProjectApp.taskInstance.details.title')" id="task-instance-heading">Task Details</span>
+        <span v-text="$t('newProjectApp.taskRevisarAnuncio.home.title')" id="task-instance-heading">Task Details</span>
       </h2>
       <div v-if="taskContext.taskInstance">
         <akip-show-task-instance :taskInstance="taskContext.taskInstance">
@@ -33,7 +33,7 @@
               />
             </div>
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskRevisarAnuncio.docRegular')">docRegular</label>
+              <label class="form-control-label" v-text="$t('newProjectApp.empresaVeiculoProcess.docRegular')">docRegular</label>
               <input
                 readonly
                 type="text"
@@ -41,20 +41,27 @@
                 name="docRegular"
                 id="empresa-veiculo-docRegular"
                 data-cy="docRegular"
-                v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.docRegular"
+                v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.docRegular ? 'Sim' : 'Não'"
               />
             </div>
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskRevisarAnuncio.multa')">multa</label>
-              <input
-                readonly
-                type="text"
-                class="form-control"
-                name="multa"
-                id="empresa-veiculo-multa"
-                data-cy="multa"
-                v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.multa"
-              />
+              <label class="form-control-label" v-text="$t('newProjectApp.empresaVeiculoProcess.multa')">multa</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">R$</span>
+                </div>
+                <currency-input
+                  id="task-regularizar-veiculo-multa"
+                  class="form-control"
+                  data-cy="multa"
+                  v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.multa"
+                  readonly
+                  :currency="null"
+                  :precision="2"
+                  :auto-decimal-mode="false"
+                  :allow-negative="false"
+                />
+              </div>
             </div>
             <div class="form-group">
               <label class="form-control-label" v-text="$t('newProjectApp.taskRevisarAnuncio.marca')">marca</label>
@@ -117,16 +124,23 @@
               />
             </div>
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('newProjectApp.taskRevisarAnuncio.preco')">preco</label>
-              <input
-                readonly
-                type="text"
-                class="form-control"
-                name="preco"
-                id="empresa-veiculo-preco"
-                data-cy="preco"
-                v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.preco"
-              />
+              <label class="form-control-label" v-text="$t('newProjectApp.empresaVeiculoProcess.preco')">preco</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">R$</span>
+                </div>
+                <currency-input
+                  id="task-regularizar-veiculo-multa"
+                  class="form-control"
+                  data-cy="preco"
+                  v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.preco"
+                  readonly
+                  :currency="null"
+                  :precision="2"
+                  :auto-decimal-mode="false"
+                  :allow-negative="false"
+                />
+              </div>
             </div>
             <div class="form-group">
               <label class="form-control-label" v-text="$t('newProjectApp.taskRevisarAnuncio.anuncioAprovado')">anuncioAprovado</label>
@@ -137,7 +151,7 @@
                 name="anuncioAprovado"
                 id="empresa-veiculo-anuncioAprovado"
                 data-cy="anuncioAprovado"
-                v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.anuncioAprovado"
+                v-model="taskContext.empresaVeiculoProcess.empresaVeiculo.anuncioAprovado ? 'Aprovado' : 'Não Aprovado'"
               />
             </div>
           </template>

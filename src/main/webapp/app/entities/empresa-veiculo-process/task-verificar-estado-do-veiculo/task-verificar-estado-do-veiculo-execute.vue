@@ -3,50 +3,42 @@
     <div class="col-10">
       <div v-if="taskContext.taskInstance">
         <h2 id="page-heading" data-cy="TaskInstanceHeading">
-          <span v-text="$t('newProjectApp.taskInstance.execute.title')" id="task-instance-heading">Task Execution</span>
+          <span v-text="$t('newProjectApp.taskVerificarEstadoDoVeiculo.home.title')" id="task-instance-heading">Task Execution</span>
         </h2>
         <akip-show-task-instance :taskInstance="taskContext.taskInstance">
           <template v-slot:body>
             <hr />
             <div class="form-group">
-              <label
-                class="form-control-label"
-                v-text="$t('newProjectApp.taskVerificarEstadoDoVeiculo.estadoVeiculo')"
-                for="task-verificar-estado-do-veiculo-estadoVeiculo"
-                >Estado Veiculo</label
-              >
-              <input
-                type="checkbox"
-                class="form-check"
+              <label class="form-control-label" v-text="$t('newProjectApp.taskVerificarEstadoDoVeiculo.estadoVeiculo')" for="task-verificar-estado-do-veiculo-estadoVeiculo">Estado Veiculo</label>
+              <select
+                class="form-control"
                 name="estadoVeiculo"
                 id="task-verificar-estado-do-veiculo-estadoVeiculo"
                 data-cy="estadoVeiculo"
                 :class="{
-                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.estadoVeiculo.$invalid,
-                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.estadoVeiculo.$invalid,
-                }"
+      valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.estadoVeiculo.$invalid,
+      invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.estadoVeiculo.$invalid,
+    }"
                 v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.estadoVeiculo.$model"
-              />
+              >
+                <option value="true">Bom</option>
+                <option value="false">Precisando de Reparo</option>
+              </select>
             </div>
             <div class="form-group">
-              <label
-                class="form-control-label"
-                v-text="$t('newProjectApp.taskVerificarEstadoDoVeiculo.obsEstadoVeiculo')"
-                for="task-verificar-estado-do-veiculo-obsEstadoVeiculo"
-                >Obs Estado Veiculo</label
-              >
-              <input
-                type="text"
+              <label class="form-control-label" v-text="$t('newProjectApp.taskVerificarEstadoDoVeiculo.obsEstadoVeiculo')" for="task-verificar-estado-do-veiculo-obsEstadoVeiculo">Obs Estado Veiculo</label>
+              <textarea
                 class="form-control"
                 name="obsEstadoVeiculo"
                 id="task-verificar-estado-do-veiculo-obsEstadoVeiculo"
                 data-cy="obsEstadoVeiculo"
                 :class="{
-                  valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.obsEstadoVeiculo.$invalid,
-                  invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.obsEstadoVeiculo.$invalid,
-                }"
+      valid: !$v.taskContext.empresaVeiculoProcess.empresaVeiculo.obsEstadoVeiculo.$invalid,
+      invalid: $v.taskContext.empresaVeiculoProcess.empresaVeiculo.obsEstadoVeiculo.$invalid,
+    }"
                 v-model="$v.taskContext.empresaVeiculoProcess.empresaVeiculo.obsEstadoVeiculo.$model"
-              />
+                rows="5"
+              ></textarea>
             </div>
           </template>
         </akip-show-task-instance>
