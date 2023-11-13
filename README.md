@@ -198,7 +198,7 @@ Para configurar CI para o seu projeto, execute o sub-gerador ci-cd (`jhipster ci
 [leaflet]: https://leafletjs.com/
 [definitelytyped]: https://definitelytyped.org/
 
-## 👨‍🎓 Autor do Projeto
+## 👨‍🎓 Autores do Projeto
 
 <table>
   <tr>
