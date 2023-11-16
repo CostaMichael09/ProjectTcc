@@ -2,10 +2,9 @@ package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.domain.Arquivos;
 import com.mycompany.myapp.service.ArquivosService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/arquivos")
@@ -24,10 +23,14 @@ public class ArquivosController {
         return arquivosService.obterArquivoImgPorEmpresaVeiculoId(empresaVeiculoId);
     }
 
+    @GetMapping("/empresa-veiculo/imgs/{empresaVeiculoId}")
+    public List<Arquivos> obterArquivosImgPorEmpresaVeiculos(@PathVariable List<Long> empresaVeiculoId) {
+        return arquivosService.obterArquivoImgPorEmpresaVeiculoIds(empresaVeiculoId);
+    }
+
     @DeleteMapping("/{arquivoId}")
     public void excluirArquivo(@PathVariable Long arquivoId) {
         arquivosService.excluirArquivo(arquivoId);
     }
-
     // Adicione outros métodos, se necessário, para upload e outras operações
 }

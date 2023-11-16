@@ -31,6 +31,19 @@ export default class EmpresaVeiculoProcessService {
     });
   }
 
+  public retrieveAnuncioTrue(): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      axios
+        .get(`${baseApiUrl}/anuncios-aprovado`)
+        .then(res => {
+          resolve(res);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  }
+
   public create(entity: IEmpresaVeiculoProcess): Promise<IEmpresaVeiculoProcess> {
     return new Promise<IEmpresaVeiculoProcess>((resolve, reject) => {
       axios

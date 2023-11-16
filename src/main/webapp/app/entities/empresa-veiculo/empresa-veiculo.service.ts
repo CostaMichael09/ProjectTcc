@@ -30,4 +30,17 @@ export default class EmpresaVeiculoService {
         });
     });
   }
+
+  public retrieveAllByAnuncioAprovado(): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      axios
+        .get(`${baseApiUrl}/anuncio-aprovado`)
+        .then(res => {
+          resolve(res);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  }
 }

@@ -1,10 +1,11 @@
 package com.mycompany.myapp.service.dto;
 
 import com.mycompany.myapp.domain.Arquivos;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Lob;
 
 /**

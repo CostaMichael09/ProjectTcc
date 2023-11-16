@@ -67,6 +67,12 @@ public class EmpresaVeiculoProcessResource {
         return empresaVeiculoProcessService.findAll();
     }
 
+    @GetMapping("/empresa-veiculo-processes/anuncios-aprovado")
+    public List<EmpresaVeiculoProcessDTO> getAllAnunciosAprovadoEmpresaVeiculoProcesss() {
+        log.debug("REST request to get all EmpresaVeiculoProcesss");
+        return empresaVeiculoProcessService.findAllByAnuncioTrue();
+    }
+
     /**
      * {@code GET  /empresa-veiculo-processes/:id} : get the "id" empresaVeiculoProcess.
      *

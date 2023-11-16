@@ -89,6 +89,16 @@ public class EmpresaVeiculoProcessService {
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
+    @Transactional(readOnly = true)
+    public List<EmpresaVeiculoProcessDTO> findAllByAnuncioTrue() {
+        log.debug("Request to get all EmpresaVeiculoProcesss");
+        return empresaVeiculoProcessRepository
+            .findAllByEmpresaVeiculo_AnuncioAprovado(true)
+            .stream()
+            .map(empresaVeiculoProcessMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
     /**
      * Get one empresaVeiculoProcess by id.
      *

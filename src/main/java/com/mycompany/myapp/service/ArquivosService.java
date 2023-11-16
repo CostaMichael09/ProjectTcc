@@ -5,16 +5,15 @@ import com.mycompany.myapp.domain.EmpresaVeiculo;
 import com.mycompany.myapp.repository.ArquivosRepository;
 import com.mycompany.myapp.service.dto.ArquivosDTO;
 import com.mycompany.myapp.service.mapper.ArquivosMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class ArquivosService {
@@ -41,9 +40,13 @@ public class ArquivosService {
     @Transactional(readOnly = true)
     public List<ArquivosDTO> findAll() {
         List<Arquivos> arquivosList = arquivosRepository.findAll();
-        return arquivosList.stream()
-            .map(arquivosMapper::toDto)
-            .collect(Collectors.toList());
+        return arquivosList.stream().map(arquivosMapper::toDto).collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public List<ArquivosDTO> findAllbyId(Long id) {
+        List<Arquivos> arquivosList = arquivosRepository.findAllByEmpresaVeiculoId(id);
+        return arquivosList.stream().map(arquivosMapper::toDto).collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
@@ -106,6 +109,7 @@ public class ArquivosService {
             return null; // Ou outro tratamento de erro, se o arquivo não for encontrado
         }
     }
+
     public List<Arquivos> obterArquivosPdfPorEmpresaVeiculoId(Long empresaVeiculoId) {
         return arquivosRepository.findAllByEmpresaVeiculoIdAndPdfsIsNotNull(empresaVeiculoId);
     }
@@ -114,8 +118,11 @@ public class ArquivosService {
         return arquivosRepository.findAllByEmpresaVeiculoIdAndFotosIsNotNull(empresaVeiculoId);
     }
 
+    public List<Arquivos> obterArquivoImgPorEmpresaVeiculoIds(List<Long> empresaVeiculoId) {
+        return arquivosRepository.findAllByEmpresaVeiculoIdInAndFotosIsNotNull(empresaVeiculoId);
+    }
+
     public void excluirArquivo(Long arquivoId) {
         arquivosRepository.deleteById(arquivoId);
     }
-
 }

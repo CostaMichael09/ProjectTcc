@@ -1,6 +1,8 @@
 package com.mycompany.myapp.repository;
 
 import com.mycompany.myapp.domain.EmpresaVeiculo;
+import java.util.List;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
@@ -9,4 +11,6 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface EmpresaVeiculoRepository extends JpaRepository<EmpresaVeiculo, Long> {}
+public interface EmpresaVeiculoRepository extends JpaRepository<EmpresaVeiculo, Long> {
+    List<EmpresaVeiculo> findAllByAnuncioAprovado(Boolean anuncioAprovado);
+}

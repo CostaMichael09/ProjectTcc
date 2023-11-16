@@ -58,7 +58,6 @@ public class EmpresaVeiculo implements Serializable {
     @Column(name = "obs_estado_veiculo")
     private String obsEstadoVeiculo;
 
-
     @Column(name = "aprovar_fotos")
     private Boolean aprovarFotos;
 
@@ -265,6 +264,14 @@ public class EmpresaVeiculo implements Serializable {
 
     public void setAnuncioAprovado(Boolean anuncioAprovado) {
         this.anuncioAprovado = anuncioAprovado;
+    }
+
+    public Set<Arquivos> getArquivos() {
+        return arquivos;
+    }
+
+    public void setArquivos(Set<Arquivos> arquivos) {
+        this.arquivos = arquivos;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
