@@ -10,6 +10,7 @@ import org.akip.service.TaskInstanceService;
 import org.akip.service.dto.TaskInstanceDTO;
 import org.akip.service.mapper.TaskInstanceMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class TaskRevisarAnuncioService {
@@ -87,6 +88,7 @@ public class TaskRevisarAnuncioService {
         empresaVeiculoService.save(empresaVeiculoDTO);
     }
 
+    @Transactional(readOnly = false)
     public void complete(TaskRevisarAnuncioContextDTO taskRevisarAnuncioContext) {
         save(taskRevisarAnuncioContext);
         EmpresaVeiculoProcessDTO empresaVeiculoProcess = empresaVeiculoProcessRepository

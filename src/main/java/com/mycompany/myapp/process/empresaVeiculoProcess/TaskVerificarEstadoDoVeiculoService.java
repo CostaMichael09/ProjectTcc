@@ -10,6 +10,7 @@ import org.akip.service.TaskInstanceService;
 import org.akip.service.dto.TaskInstanceDTO;
 import org.akip.service.mapper.TaskInstanceMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class TaskVerificarEstadoDoVeiculoService {

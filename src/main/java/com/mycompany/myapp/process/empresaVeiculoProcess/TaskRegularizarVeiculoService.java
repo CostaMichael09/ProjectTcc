@@ -1,15 +1,21 @@
 package com.mycompany.myapp.process.empresaVeiculoProcess;
 
+import com.mycompany.myapp.repository.ArquivosRepository;
 import com.mycompany.myapp.repository.EmpresaVeiculoProcessRepository;
+import com.mycompany.myapp.service.ArquivosService;
 import com.mycompany.myapp.service.EmpresaVeiculoService;
 import com.mycompany.myapp.service.dto.EmpresaVeiculoDTO;
 import com.mycompany.myapp.service.dto.EmpresaVeiculoProcessDTO;
+import com.mycompany.myapp.service.mapper.ArquivosMapper;
 import com.mycompany.myapp.service.mapper.EmpresaVeiculoProcessMapper;
+import java.util.Collections;
 import org.akip.repository.TaskInstanceRepository;
 import org.akip.service.TaskInstanceService;
 import org.akip.service.dto.TaskInstanceDTO;
 import org.akip.service.mapper.TaskInstanceMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class TaskRegularizarVeiculoService {
@@ -27,6 +33,12 @@ public class TaskRegularizarVeiculoService {
     private final TaskRegularizarVeiculoMapper taskRegularizarVeiculoMapper;
 
     private final EmpresaVeiculoProcessMapper empresaVeiculoProcessMapper;
+
+    @Autowired
+    private ArquivosMapper arquivosMapper;
+
+    @Autowired
+    private ArquivosService arquivosService;
 
     public TaskRegularizarVeiculoService(
         TaskInstanceService taskInstanceService,

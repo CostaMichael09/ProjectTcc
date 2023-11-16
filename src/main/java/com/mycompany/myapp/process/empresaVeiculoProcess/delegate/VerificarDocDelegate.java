@@ -1,12 +1,16 @@
 package com.mycompany.myapp.process.empresaVeiculoProcess.delegate;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.mycompany.myapp.domain.Arquivos;
 import com.mycompany.myapp.domain.EmpresaVeiculo;
 import com.mycompany.myapp.repository.ArquivosRepository;
 import com.mycompany.myapp.service.ArquivosService;
 import com.mycompany.myapp.service.EmpresaVeiculoService;
 import com.mycompany.myapp.service.dto.EmpresaVeiculoDTO;
-
+import java.io.ByteArrayOutputStream;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -17,13 +21,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
-
-import java.io.ByteArrayOutputStream;
 
 @Component
 public class VerificarDocDelegate implements JavaDelegate {
@@ -65,7 +62,9 @@ public class VerificarDocDelegate implements JavaDelegate {
                 // Salve os bytes em um arquivo no servidor
 
                 Arquivos arquivo = new Arquivos();
-                arquivo.setName("MultaVeiculoPlaca"+empresaVeiculoDTO.get().getPlaca()+"renavam"+empresaVeiculoDTO.get().getRenavam()+".pdf");
+                arquivo.setName(
+                    "MultaVeiculoPlaca" + empresaVeiculoDTO.get().getPlaca() + "renavam" + empresaVeiculoDTO.get().getRenavam() + ".pdf"
+                );
                 arquivo.setType("pdf");
                 arquivo.setUploadedDate(LocalDateTime.now());
                 arquivo.setUploadedBy("DetranAPI"); // Defina o usuário apropriado
@@ -76,7 +75,6 @@ public class VerificarDocDelegate implements JavaDelegate {
                 arquivo.setEmpresaVeiculo(empresaVeiculo);
                 // Salve o objeto Arquivos no banco de dados
                 arquivosRepository.save(arquivo);
-
             }
 
             empresaVeiculoService.save(empresaVeiculoDTO.get());

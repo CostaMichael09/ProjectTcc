@@ -1,8 +1,10 @@
 package com.mycompany.myapp.service.dto;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class ArquivosDTO {
+public class ArquivosDTO implements Serializable {
+
     private Long id;
     private String name;
     private String status;

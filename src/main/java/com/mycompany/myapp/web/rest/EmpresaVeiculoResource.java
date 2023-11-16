@@ -46,6 +46,12 @@ public class EmpresaVeiculoResource {
         return empresaVeiculoService.findAll();
     }
 
+    @GetMapping("/empresa-veiculos/anuncio-aprovado")
+    public List<EmpresaVeiculoDTO> getAllEmpresaVeiculosAnuncioAprovado() {
+        log.debug("REST request to get all EmpresaVeiculos");
+        return empresaVeiculoService.findAllByAnuncioTrue();
+    }
+
     /**
      * {@code GET  /empresa-veiculos/:id} : get the "id" empresaVeiculo.
      *

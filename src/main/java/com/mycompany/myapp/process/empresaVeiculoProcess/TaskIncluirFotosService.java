@@ -10,6 +10,7 @@ import org.akip.service.TaskInstanceService;
 import org.akip.service.dto.TaskInstanceDTO;
 import org.akip.service.mapper.TaskInstanceMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class TaskIncluirFotosService {
@@ -73,7 +74,7 @@ public class TaskIncluirFotosService {
         EmpresaVeiculoDTO empresaVeiculoDTO = empresaVeiculoService
             .findOne(taskIncluirFotosContext.getEmpresaVeiculoProcess().getEmpresaVeiculo().getId())
             .orElseThrow();
-//        empresaVeiculoDTO.setFotos(taskIncluirFotosContext.getEmpresaVeiculoProcess().getEmpresaVeiculo().getFotos());
+        //        empresaVeiculoDTO.setFotos(taskIncluirFotosContext.getEmpresaVeiculoProcess().getEmpresaVeiculo().getFotos());
         empresaVeiculoService.save(empresaVeiculoDTO);
     }
 

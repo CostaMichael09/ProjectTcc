@@ -35,10 +35,11 @@ import CarroService from '@/entities/carro/carro.service';
 import CarroProcessService from '@/entities/carro-process/carro-process.service';
 import EmpresaVeiculoService from '@/entities/empresa-veiculo/empresa-veiculo.service';
 import EmpresaVeiculoProcessService from '@/entities/empresa-veiculo-process/empresa-veiculo-process.service';
-import PdfService from "@/component/pdf/pdf.service";
-import ImgService from "@/component/img/img.service";
-import {library} from "@fortawesome/fontawesome-svg-core";
-import {fas} from "@fortawesome/free-solid-svg-icons";
+import PdfService from '@/component/pdf/pdf.service';
+import ImgService from '@/component/img/img.service';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons/faChevronLeft';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 /* tslint:enable */
@@ -48,11 +49,13 @@ config.initFortAwesome(Vue);
 bootstrapVueConfig.initBootstrapVue(Vue);
 Vue.use(Vue2Filters);
 Vue.use(ToastPlugin);
-library.add(fas)
+library.add(fas);
+library.add(faChevronLeft);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('jhi-item-count', JhiItemCountComponent);
 Vue.component('jhi-sort-indicator', JhiSortIndicatorComponent);
 Vue.component('infinite-loading', InfiniteLoading);
+Vue.component('fa-chevron-left', faChevronLeft);
 
 Vue.use(Akip);
 Vue.component('vue-markdown', VueMarkdown);
@@ -110,7 +113,7 @@ new Vue({
     // jhipster-needle-add-entity-service-to-main - JHipster will import entities services here
     accountService: () => accountService,
     pdfService: () => PdfService,
-    imgService: () => ImgService
+    imgService: () => ImgService,
   },
   i18n,
   store,
