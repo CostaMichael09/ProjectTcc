@@ -1,0 +1,67 @@
+{
+  "fields": [
+    {
+      "fieldName": "renavam",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "placa",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "docRegular",
+      "fieldType": "Boolean",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "multa",
+      "fieldType": "BigDecimal",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "marca",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "modelo",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "anoFabricacao",
+      "fieldType": "Long",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "anoModelo",
+      "fieldType": "Long",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "cor",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "preco",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [],
+  "entityType": "user-task-form",
+  "processBpmnId": "EmpresaVeiculoProcess",
+  "processEntityName": "EmpresaVeiculoProcess",
+  "taskBpmnId": "TaskCadastrarAnuncio",
+  "domainEntityName": "EmpresaVeiculo",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "skipFakeData": true,
+  "name": "TaskCadastrarAnuncio",
+  "changelogDate": "20231024205800"
+}

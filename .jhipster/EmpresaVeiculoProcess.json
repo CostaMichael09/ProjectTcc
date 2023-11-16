@@ -1,0 +1,77 @@
+{
+  "fields": [
+    {
+      "fieldName": "renavam",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "placa",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "docRegular",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "multa",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "marca",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modelo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anoFabricacao",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "anoModelo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "cor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "estadoVeiculo",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "obsEstadoVeiculo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fotos",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "aprovarFotos",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "preco",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "anuncioAprovado",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [],
+  "entityType": "process-binding",
+  "processBpmnId": "EmpresaVeiculoProcess",
+  "domainEntityName": "EmpresaVeiculo",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "name": "EmpresaVeiculoProcess",
+  "changelogDate": "20231024211100",
+  "skipFakeData": true
+}

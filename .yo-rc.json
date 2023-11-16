@@ -53,6 +53,6 @@
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
     "languages": ["en"],
-    "entities": ["Carro"]
+    "entities": ["EmpresaVeiculo"]
   }
 }

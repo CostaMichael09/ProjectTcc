@@ -1,0 +1,38 @@
+{
+  "newProjectApp": {
+    "empresaVeiculoProcess": {
+      "home": {
+        "title": "Empresa Veiculo Processes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Empresa Veiculo Process",
+        "createOrEditLabel": "Create or edit a Empresa Veiculo Process",
+        "notFound": "No Empresa Veiculo Processes found"
+      },
+      "created": "A new Empresa Veiculo Process is created with identifier {{ param }}",
+      "updated": "A Empresa Veiculo Process is updated with identifier {{ param }}",
+      "deleted": "A Empresa Veiculo Process is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Empresa Veiculo Process {{ id }}?"
+      },
+      "detail": {
+        "title": "Empresa Veiculo Process"
+      },
+      "id": "ID",
+      "renavam": "Renavam",
+      "placa": "Placa",
+      "docRegular": "Doc Regular",
+      "multa": "Multa",
+      "marca": "Marca",
+      "modelo": "Modelo",
+      "anoFabricacao": "Ano Fabricacao",
+      "anoModelo": "Ano Modelo",
+      "cor": "Cor",
+      "estadoVeiculo": "Estado Veiculo",
+      "obsEstadoVeiculo": "Obs Estado Veiculo",
+      "fotos": "Fotos",
+      "aprovarFotos": "Aprovar Fotos",
+      "preco": "Preco",
+      "anuncioAprovado": "Anuncio Aprovado"
+    }
+  }
+}

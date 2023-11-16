@@ -1,0 +1,25 @@
+{
+  "fields": [
+    {
+      "fieldName": "renavam",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "placa",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityType": "start-form",
+  "processBpmnId": "EmpresaVeiculoProcess",
+  "processEntityName": "EmpresaVeiculoProcess",
+  "domainEntityName": "EmpresaVeiculo",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "name": "EmpresaVeiculoStartForm",
+  "changelogDate": "20231024203500",
+  "skipFakeData": true
+}

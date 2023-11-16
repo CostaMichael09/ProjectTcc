@@ -1,0 +1,27 @@
+{
+  "fields": [
+    {
+      "fieldName": "fotos",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "aprovarFotos",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [],
+  "entityType": "user-task-form",
+  "processBpmnId": "EmpresaVeiculoProcess",
+  "processEntityName": "EmpresaVeiculoProcess",
+  "taskBpmnId": "TaskAprovarFotos",
+  "domainEntityName": "EmpresaVeiculo",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "skipFakeData": true,
+  "name": "TaskAprovarFotos",
+  "changelogDate": "20231024205500"
+}

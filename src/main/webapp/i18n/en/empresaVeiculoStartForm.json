@@ -1,0 +1,25 @@
+{
+  "newProjectApp": {
+    "empresaVeiculoStartForm": {
+      "home": {
+        "title": "Formulários Iniciais da Empresa de Veículo",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar um novo Formulário Inicial da Empresa de Veículo",
+        "createOrEditLabel": "Criar ou editar um Formulário Inicial da Empresa de Veículo",
+        "notFound": "Nenhum Formulário Inicial da Empresa de Veículo encontrado"
+      },
+      "created": "Um novo Formulário Inicial da Empresa de Veículo é criado com o identificador {{ param }}",
+      "updated": "Um Formulário Inicial da Empresa de Veículo é atualizado com o identificador {{ param }}",
+      "deleted": "Um Formulário Inicial da Empresa de Veículo é excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir o Formulário Inicial da Empresa de Veículo {{ id }}?"
+      },
+      "detail": {
+        "title": "Formulário Inicial da Empresa de Veículo"
+      },
+      "id": "ID",
+      "renavam": "Renavam",
+      "placa": "Placa"
+    }
+  }
+}

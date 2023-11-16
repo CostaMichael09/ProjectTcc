@@ -337,6 +337,11 @@
             <artifactId>akip-core-community</artifactId>
             <version>2dd4f6c20a81185468a3cb4351831395bd1f9eab</version>
         </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>5.5.11</version>
+        </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
     </dependencies>
 

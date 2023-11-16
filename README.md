@@ -1,42 +1,51 @@
-# newProject
+# Gerenciamento de Estoque de uma Concessionária
 
-This application was generated using JHipster 7.0.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.0.1](https://www.jhipster.tech/documentation-archive/v7.0.1).
+<img src="https://i.imgur.com/RGx1Oqd.png">
 
-## Development
+<p><b>✅ Projeto Finalizado</b></p>
+<p><b>📆 Data de entrega:</b> 13/11/2023</p> 
+<!--- <p><b>🎓 Nota:</b> 10</p> --->
 
-Before you can build this project, you must install and configure the following dependencies on your machine:
+## 💬 Descrição
 
-1. [Node.js][]: We use Node to run a development web server and build the project.
-   Depending on your system, you can install Node either from source or as a pre-packaged bundle.
+Repositório para armazenar o Trabalho de Conclusão de Curso do Centro Universitário Unicarioca. O projeto tem como orientador o pelo professor [Alberto Tavares da Silva](https://www.linkedin.com/in/alberto-tavares-da-silva-b03a5069/) se trata de uma Aplicação Vue.JS com Spring Boot, máquina de processos com camunda
+para gerenciamento de estoque de uma concessionária.
 
-After installing Node, you should be able to run the following command to install development tools.
-You will only need to run this command when dependencies change in [package.json](package.json).
+O trabalho vai ser entregue em novembro de 2023.
+
+## 📚 Requisitos do projeto
+
+Esta aplicação foi gerada usando o JHipster 7.0.1. Você pode encontrar a documentação e ajuda em [https://www.jhipster.tech/documentation-archive/v7.0.1](https://www.jhipster.tech/documentation-archive/v7.0.1).
+
+## Desenvolvimento
+
+Antes de construir este projeto, você deve instalar e configurar as seguintes dependências em sua máquina:
+
+1. [Node.js][]: Usamos o Node para executar um servidor web de desenvolvimento e construir o projeto. Dependendo do seu sistema, você pode instalar o Node seja a partir do código-fonte ou como um pacote pré-empacotado.
+
+Após instalar o Node, você deverá conseguir executar o seguinte comando para instalar as ferramentas de desenvolvimento. Você só precisará executar este comando quando as dependências mudarem no [package.json](package.json).
 
 ```
 npm install
 ```
 
-We use npm scripts and [Webpack][] as our build system.
+Nós utilizamos scripts do npm e o [Webpack][] como nosso sistema de construção.
 
-Run the following commands in two separate terminals to create a blissful development experience where your browser
-auto-refreshes when files change on your hard drive.
+Execute os seguintes comandos em dois terminais separados para criar uma experiência de desenvolvimento agradável, onde o seu navegador é atualizado automaticamente quando os arquivos são modificados no seu disco rígido.
 
 ```
 ./mvnw
 npm start
 ```
+O npm também é utilizado para gerenciar as dependências de CSS e JavaScript utilizadas nesta aplicação. Você pode atualizar as dependências especificando uma versão mais recente no arquivo package.json. Você também pode executar `npm update` e `npm install` para gerenciar as dependências. 
+Adicione a flag `help` a qualquer comando para ver como você pode usá-lo. Por exemplo,`npm help update`.
 
-Npm is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
-specifying a newer version in [package.json](package.json). You can also run `npm update` and `npm install` to manage dependencies.
-Add the `help` flag on any command to see how you can use it. For example, `npm help update`.
+O comando `npm run` irá listar todos os scripts disponíveis para execução neste projeto.
 
-The `npm run` command will list all of the scripts available to run for this project.
+### Suporte a PWA
+O JHipster vem com suporte a PWA (Progressive Web App), e ele está desativado por padrão. Um dos principais componentes de uma PWA é um service worker.
 
-### PWA Support
-
-JHipster ships with PWA (Progressive Web App) support, and it's turned off by default. One of the main components of a PWA is a service worker.
-
-The service worker initialization code is commented out by default. To enable it, uncomment the following code in `src/main/webapp/index.html`:
+O código de inicialização do service worker está comentado por padrão. Para ativá-lo, descomente o seguinte código em `src/main/webapp/index.html`:
 
 ```html
 <script>
@@ -47,52 +56,50 @@ The service worker initialization code is commented out by default. To enable it
   }
 </script>
 ```
+Note: [Workbox](https://developers.google.com/web/tools/workbox/) O service worker do JHipster é alimentado por Powers. Ele gera dinamicamente o arquivo `service-worker.js`.
 
-Note: [Workbox](https://developers.google.com/web/tools/workbox/) powers JHipster's service worker. It dynamically generates the `service-worker.js` file.
-
-### Managing dependencies
-
-For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
+## Gerenciando dependências
+Por exemplo, para adicionar a biblioteca [Leaflet][] como uma dependência em tempo de execução da sua aplicação, você executaria o seguinte comando:
 
 ```
 npm install --save --save-exact leaflet
 ```
 
-To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
+Para aproveitar as definições de tipo TypeScript do repositório [DefinitelyTyped][] durante o desenvolvimento, você executaria o seguinte comando:
 
 ```
 npm install --save-dev --save-exact @types/leaflet
 ```
 
-Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
-Note: There are still a few other things remaining to do for Leaflet that we won't detail here.
 
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
+Em seguida, você importaria os arquivos JS e CSS especificados nas instruções de instalação da biblioteca para que o [Webpack][] tenha conhecimento sobre eles:
+Nota: Ainda há algumas outras coisas a serem feitas para o Leaflet que não detalharemos aqui.
 
-## Building for production
+Para mais instruções sobre como desenvolver com o JHipster, dê uma olhada em [Usando o JHipster no desenvolvimento][].
 
-### Packaging as jar
+## Construindo para produção
+### Empacotando como jar
 
-To build the final jar and optimize the newProject application for production, run:
+Para construir o jar final e otimizar a aplicação newProject para produção, execute:
 
 ```
 ./mvnw -Pprod clean verify
 ```
 
-This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
-To ensure everything worked, run:
+Isso irá concatenar e minificar os arquivos CSS e JavaScript do cliente. Também modificará o `index.html` para referenciar esses novos arquivos.
+Para garantir que tudo funcionou, execute:
 
 ```
 java -jar target/*.jar
 ```
 
-Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
+Em seguida, acesse http://localhost:8080 no seu navegador.
 
-Refer to [Using JHipster in production][] for more details.
+Consulte [Usando o JHipster em produção][] para mais detalhes.
 
 ### Packaging as war
 
-To package your application as a war in order to deploy it to an application server, run:
+Para empacotar sua aplicação como um arquivo war para implantá-la em um servidor de aplicação, execute:
 
 ```
 ./mvnw -Pprod,war clean verify
@@ -100,7 +107,7 @@ To package your application as a war in order to deploy it to an application ser
 
 ## Testing
 
-To launch your application's tests, run:
+Para iniciar os testes da sua aplicação, execute:
 
 ```
 ./mvnw verify
@@ -108,74 +115,71 @@ To launch your application's tests, run:
 
 ### Client tests
 
-Unit tests are run by [Jest][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
+Os testes unitários são executados pelo [Jest][]. Eles estão localizados em src/test/javascript/ e podem ser executados com:
 
 ```
 npm test
 ```
 
-For more information, refer to the [Running tests page][].
+Para mais informações, consulte a página [Running tests][].
 
-### Code quality
+## Qualidade do código
 
-Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
+O Sonar é utilizado para analisar a qualidade do código. Você pode iniciar um servidor Sonar local (acessível em http://localhost:9001) com:
 
 ```
 docker-compose -f src/main/docker/sonar.yml up -d
 ```
 
-Note: we have turned off authentication in [src/main/docker/sonar.yml](src/main/docker/sonar.yml) for out of the box experience while trying out SonarQube, for real use cases turn it back on.
+Observação: desativamos a autenticação em src/main/docker/sonar.yml para proporcionar uma experiência pronta para uso ao experimentar o SonarQube; para casos de uso reais, ative-a novamente.
 
-You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the maven plugin.
+Você pode executar uma análise do Sonar usando o sonar-scanner ou usando o plugin Maven.
 
-Then, run a Sonar analysis:
+Em seguida, execute uma análise do Sonar:
 
 ```
 ./mvnw -Pprod clean verify sonar:sonar
 ```
 
-If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
+Se precisar executar novamente a fase do Sonar, certifique-se de especificar pelo menos a fase `initialize`, pois as propriedades do Sonar são carregadas a partir do arquivo sonar-project.properties.
 
 ```
 ./mvnw initialize sonar:sonar
 ```
 
-For more information, refer to the [Code quality page][].
+Para mais informações, consulte a página [Code quality][].
 
-## Using Docker to simplify development (optional)
+## Usando o Docker para simplificar o desenvolvimento (opcional)\
 
-You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the [src/main/docker](src/main/docker) folder to launch required third party services.
+Você pode usar o Docker para melhorar sua experiência de desenvolvimento com o JHipster. Várias configurações do docker-compose estão disponíveis na pasta src/main/docker para iniciar serviços de terceiros necessários.
 
-For example, to start a postgresql database in a docker container, run:
+Por exemplo, para iniciar um banco de dados PostgreSQL em um contêiner Docker, execute:
 
 ```
 docker-compose -f src/main/docker/postgresql.yml up -d
 ```
 
-To stop it and remove the container, run:
+Para pará-lo e remover o contêiner, execute:
 
 ```
 docker-compose -f src/main/docker/postgresql.yml down
 ```
 
-You can also fully dockerize your application and all the services that it depends on.
-To achieve this, first build a docker image of your app by running:
+Você também pode dockerizar completamente sua aplicação e todos os serviços dos quais ela depende. Para fazer isso, primeiro construa uma imagem Docker da sua aplicação executando:
 
 ```
 ./mvnw -Pprod verify jib:dockerBuild
 ```
 
-Then run:
+Em seguida, execute:
 
 ```
 docker-compose -f src/main/docker/app.yml up -d
 ```
 
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`jhipster docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
+Para mais informações, consulte [Using Docker and Docker-Compose][], esta página também contém informações sobre o sub-gerador docker-compose (`jhipster docker-compose`), que é capaz de gerar configurações docker para uma ou várias aplicações JHipster.
 
-## Continuous Integration (optional)
-
-To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
+Para configurar CI para o seu projeto, execute o sub-gerador ci-cd (`jhipster ci-cd`). Isso permitirá que você gere arquivos de configuração para vários sistemas de Integração Contínua. Consulte a página [Configurando Integração Contínua][] para obter mais informações.
 
 [jhipster homepage and latest documentation]: https://www.jhipster.tech
 [jhipster 7.0.1 archive]: https://www.jhipster.tech/documentation-archive/v7.0.1
@@ -193,3 +197,58 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [protractor]: https://angular.github.io/protractor/
 [leaflet]: https://leafletjs.com/
 [definitelytyped]: https://definitelytyped.org/
+
+## 👨‍🎓 Autores do Projeto
+
+<table>
+  <tr>
+    <td align="center">
+      <a target="_blank" href="https://github.com/CostaMichael09"><img src="https://avatars.githubusercontent.com/u/76540459?v=4" width="140px">
+        <br>
+        <b>Michael Costa</b>
+      </a>
+      <br>
+      <a href="https://www.linkedin.com/in/michael-costa-3a3633144/">
+      <sub>
+      <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+      </a>
+      <br>
+      <a target="_blank" href="https://github.com/CostaMichael09"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+      </sub>
+      </a>
+    </td>
+        
+  <td align="center">
+      <a target="_blank" href="https://github.com/camposwenderson"><img src="https://avatars.githubusercontent.com/u/49501669?v=4" width="140px">
+        <br>
+        <b>Wenderson Campos</b>
+      </a>
+      <br>
+      <a href="https://www.linkedin.com/in/camposwenderson/">
+      <sub>
+      <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+      </a>
+      <br>
+      <a target="_blank" href="https://github.com/camposwenderson"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+      </sub>
+      </a>
+    </td>
+
+  <td align="center">
+      <a target="_blank" href="https://github.com/Vinicius-Lima31"><img src="https://avatars.githubusercontent.com/u/62820033?v=4" width="140px">
+        <br>
+        <b>Vinícius Lima</b>
+      </a>
+      <br>
+      <a href="https://www.linkedin.com/in/vin%C3%ADcius-lima-b8a1b9165/">
+      <sub>
+      <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+      </a>
+      <br>
+      <a target="_blank" href="https://github.com/Vinicius-Lima31"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+      </sub>
+      </a>
+    </td>
+        
+</tr>    
+</table>
